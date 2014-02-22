@@ -92,7 +92,6 @@ ActiveRecord::Schema.define(version: 20140222223117) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
-    t.integer  "reservation"
     t.integer  "phone_number"
     t.boolean  "admin",                  default: false
   end
