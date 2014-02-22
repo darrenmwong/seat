@@ -16,9 +16,9 @@ development:
   adapter:  postgresql
   host:     localhost
   encoding: unicode
-  database: reservation_development
+  database: seat_development
   pool:     5
-  username: reservation
+  username: seat
   password:
   template: template0
 
@@ -44,9 +44,9 @@ test:
   adapter:  postgresql
   host:     localhost
   encoding: unicode
-  database: reservation_test
+  database: seat_test
   pool:     5
-  username: reservation
+  username: seat
   password:
   template: template0
 
@@ -54,8 +54,8 @@ production:
   adapter:  postgresql
   host:     localhost
   encoding: unicode
-  database: reservation_production
+  database: seat_production
   pool:     5
-  username: reservation
+  username: seat
   password:
   template: template0
