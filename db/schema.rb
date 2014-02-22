@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222230452) do
+ActiveRecord::Schema.define(version: 20140222233823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "reserv_servs", force: true do |t|
+    t.integer  "reservation_id"
+    t.integer  "server_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reserv_servs", ["reservation_id"], name: "index_reserv_servs_on_reservation_id", using: :btree
+  add_index "reserv_servs", ["server_id"], name: "index_reserv_servs_on_server_id", using: :btree
+
+  create_table "reserv_tables", force: true do |t|
+    t.integer  "reservation_id"
+    t.integer  "table_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reserv_tables", ["reservation_id"], name: "index_reserv_tables_on_reservation_id", using: :btree
+  add_index "reserv_tables", ["table_id"], name: "index_reserv_tables_on_table_id", using: :btree
 
   create_table "reservations", force: true do |t|
     t.date     "date"
