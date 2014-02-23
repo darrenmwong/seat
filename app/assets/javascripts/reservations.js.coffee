@@ -1,7 +1,10 @@
 $(function(){
 
  $window.load(function() {
-  $(".form").append("");
+  $("#form").append(HandleBarsTemplate.dates);
+
+
+
 
  });
 
