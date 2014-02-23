@@ -38,7 +38,7 @@ t = Table.create(restaurant_id: 1, capacity: 2)
 t = Table.create(restaurant_id: 1, capacity: 4)
 
 
-u = User.new(email: "darrenwong06@gmail.com", password: 123)
+u = User.new(email: "darrenwong06@gmail.com",confirmation_token: "JM2yyqok9IaB6UACSlbnz8bHdvjzrMnPvVMSiC/BNTA=", confirmation_sent_at: "2013-10-29 00:00:00", confirmed_at: "2013-11-29 00:00:00", password: 123)
 u.save!(:validate => false)
 
 u.reservations.create(date: "2014-02-22", time_begin: "21:46:10", time_end: "23:00:00", party_size: 4)

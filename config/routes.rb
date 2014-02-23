@@ -8,7 +8,7 @@ Seat::Application.routes.draw do
   get "servers/index"
   get "servers/new"
   get "servers/create"
-  root :to => "home#index"
+  root :to => "reservations#index"
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :users
 end
