@@ -17,9 +17,12 @@ gem 'unicorn'
 gem 'unicorn-rails'
 gem 'redis'
 gem 'sidekiq'
+gem 'rails_config'
+gem 'omniauth-facebook', '1.4.0'
+gem 'protected_attributes'
 group :development do
   gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
+  gem 'binding_of_caller'
   gem 'foreman'
   gem 'hub', :require=>nil
   gem 'rails_layout'
