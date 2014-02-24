@@ -1,4 +1,4 @@
-<% if current_user = true %>
+<% if @user.admin = false %>
 <%= render partial: "new" %>
 <% else %>
 <%= render partial: "admin" %>
