@@ -20,7 +20,7 @@ module Seat
       g.helper_specs false
     end
 
-    config.active_record.observers = :user_observer
+    # config.active_record.observers = :user_observer
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
