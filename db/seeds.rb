@@ -16,31 +16,21 @@
 # puts 'user: ' << user.name
 # user.confirm!
 # user.add_role :admin
+Restaurant.create(name: "Alexander's", num_of_tables: 50)
 
-r = Restaurant.create(name: "chipotle", num_of_tables: 1)
-r = Restaurant.create(name: "joelsucks", num_of_tables: 2)
+i=0
+while i < Restaurant.first.num_of_tables
+  if i % 2 == 0
+    Restaurant.first.tables.create(capacity: 2, server_id: 1)
+    i+=1
+  else
+    Restaurant.first.tables.create(capacity: 4, server_id: 2)
+    i+=1
+  end
+end
 
-u = User.new(email: "darrenwong06@gmail.com", password: 123)
-u.save!(:validate => false)
-
-u.reservations.create(date: "2014-02-22", time_begin: "21:46:10", time_end: "23:00:00", party_size: 4)
-u.reservations.create(date: "2014-11-12", time_begin: "21:46:10", time_end: "16:00:00", party_size: 3)
-
-u.reservations.first.restaurant = Restaurant.first
-
-u = User.new(email: "fnc314@gmail.com", password: 123, admin: true)
-u.save!(:validate => false)
-
-u.reservations.create(date: "2014-08-8", time_begin: "21:46:10", time_end: "08:00:00", party_size: 8)
-u.reservations.create(date: "2015-12-8", time_begin: "22:46:10", time_end: "10:00:00", party_size: 13)
-
-u.reservations.second.restaurant = Restaurant.second
-
-u = User.new(email: "fnc314@gmail.com", password: 123, admin: true)
-u.save!(:validate => false)
-
-u.reservations.create(date: "2014-08-8", time_begin: "21:46:10", time_end: "08:00:00", party_size: 8)
-u.reservations.create(date: "2015-12-8", time_begin: "22:46:10", time_end: "10:00:00", party_size: 13)
+Restaurant.first.servers.create(name: "Joan", restaurant_id: 1)
+Restaurant.first.servers.create(name: "Jim", restaurant_id: 1)
 
 
 
