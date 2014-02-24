@@ -106,6 +106,8 @@ ActiveRecord::Schema.define(version: 20140224051411) do
     t.integer  "invitations_count",      default: 0
     t.integer  "phone_number"
     t.boolean  "admin",                  default: false
+    t.string   "provider"
+    t.string   "uid"
     t.string   "image"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"

@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   
-  require ReservationsHelper
+  include ReservationsHelper
 
   def index
     @reservations = Reservation.all
