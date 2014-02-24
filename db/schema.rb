@@ -11,20 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222233823) do
+ActiveRecord::Schema.define(version: 20140224042818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "reserv_servs", force: true do |t|
-    t.integer  "reservation_id"
-    t.integer  "server_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "reserv_servs", ["reservation_id"], name: "index_reserv_servs_on_reservation_id", using: :btree
-  add_index "reserv_servs", ["server_id"], name: "index_reserv_servs_on_server_id", using: :btree
 
   create_table "reserv_tables", force: true do |t|
     t.integer  "reservation_id"
@@ -45,9 +35,11 @@ ActiveRecord::Schema.define(version: 20140222233823) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "restaurant_id"
+    t.integer  "server_id"
   end
 
   add_index "reservations", ["restaurant_id"], name: "index_reservations_on_restaurant_id", using: :btree
+  add_index "reservations", ["server_id"], name: "index_reservations_on_server_id", using: :btree
   add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
 
   create_table "restaurants", force: true do |t|
