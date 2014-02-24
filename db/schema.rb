@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140224051411) do
 
   # These are extensions that must be enabled in order to support this database
@@ -107,8 +106,6 @@ ActiveRecord::Schema.define(version: 20140224051411) do
     t.integer  "invitations_count",      default: 0
     t.integer  "phone_number"
     t.boolean  "admin",                  default: false
-    t.string   "uid"
-    t.string   "provider"
     t.string   "image"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
