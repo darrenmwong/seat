@@ -1,13 +1,17 @@
+
 <%= form_for @reservation do |f| %>
- <%= f.label :date %><br>
+  <%= f.label :date %><br>
   <%= f.date_field :date %><br>
-    <%= f.label :party_size %><br>
+
+  <%= f.label :party_size %><br>
   <%= f.number_field :party_size, in: 1..24 %> <br>
-<% @time.each do |time| %>
-  <%= f.label time %> <br>
-<%= radio_button_tag :time_begin,  l(time,format: :default) %>
-<% end %>
+
+  <%= f.label :time_begin %> <br>
+    <% @times.each do |t| %>
+    <%= f.radio_button :time_begin, t %>
+    <%= f.label t %>
+    <% end %>
+    <br>
+
 <%= f.submit %>
 <% end %>
-
-
