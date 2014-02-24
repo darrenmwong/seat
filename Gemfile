@@ -17,7 +17,7 @@ gem 'unicorn'
 gem 'unicorn-rails'
 gem 'redis'
 gem 'sidekiq'
-gem "handlebars", "~> 0.6.0"
+gem 'handlebars_assets'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
