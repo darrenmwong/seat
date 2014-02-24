@@ -11,20 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224042818) do
+ActiveRecord::Schema.define(version: 20140224051411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "reserv_tables", force: true do |t|
-    t.integer  "reservation_id"
-    t.integer  "table_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "reserv_tables", ["reservation_id"], name: "index_reserv_tables_on_reservation_id", using: :btree
-  add_index "reserv_tables", ["table_id"], name: "index_reserv_tables_on_table_id", using: :btree
 
   create_table "reservations", force: true do |t|
     t.date     "date"
@@ -41,6 +31,16 @@ ActiveRecord::Schema.define(version: 20140224042818) do
   add_index "reservations", ["restaurant_id"], name: "index_reservations_on_restaurant_id", using: :btree
   add_index "reservations", ["server_id"], name: "index_reservations_on_server_id", using: :btree
   add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
+
+  create_table "reservetables", force: true do |t|
+    t.integer  "reservation_id"
+    t.integer  "table_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reservetables", ["reservation_id"], name: "index_reservetables_on_reservation_id", using: :btree
+  add_index "reservetables", ["table_id"], name: "index_reservetables_on_table_id", using: :btree
 
   create_table "restaurants", force: true do |t|
     t.string   "name"
@@ -74,11 +74,9 @@ ActiveRecord::Schema.define(version: 20140224042818) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "restaurant_id"
-    t.integer  "server_id"
   end
 
   add_index "tables", ["restaurant_id"], name: "index_tables_on_restaurant_id", using: :btree
-  add_index "tables", ["server_id"], name: "index_tables_on_server_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
