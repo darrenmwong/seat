@@ -11,6 +11,7 @@ class ReservationsController < ApplicationController
   end
 
   def new
+    @user = current_user
     @reservation = Reservation.new
     @times = []
     hours = [18, 19, 20, 21]
