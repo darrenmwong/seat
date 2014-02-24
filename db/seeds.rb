@@ -17,47 +17,31 @@
 # user.confirm!
 # user.add_role :admin
 
-r = Restaurant.create(name: "chipotle", num_of_tables: 1)
-r = Restaurant.create(name: "alexander's", num_of_tables: 2)
-t = Table.create(restaurant_id: 2, capacity: 4)
-t = Table.create(restaurant_id: 2, capacity: 2)
-t = Table.create(restaurant_id: 2, capacity: 4)
-t = Table.create(restaurant_id: 2, capacity: 2)
-t = Table.create(restaurant_id: 2, capacity: 4)
-t = Table.create(restaurant_id: 2, capacity: 2)
-t = Table.create(restaurant_id: 2, capacity: 4)
-t = Table.create(restaurant_id: 2, capacity: 2)
-t = Table.create(restaurant_id: 1, capacity: 4)
-t = Table.create(restaurant_id: 1, capacity: 2)
-t = Table.create(restaurant_id: 1, capacity: 4)
-t = Table.create(restaurant_id: 1, capacity: 2)
-t = Table.create(restaurant_id: 1, capacity: 4)
-t = Table.create(restaurant_id: 1, capacity: 2)
-t = Table.create(restaurant_id: 1, capacity: 4)
-t = Table.create(restaurant_id: 1, capacity: 2)
-t = Table.create(restaurant_id: 1, capacity: 4)
+Restaurant.create(name: "Alexander's", num_of_tables: 30)
 
+(1..10).each do
+  Table.create(capacity: 2, restaurant_id: 1)
+end
 
-u = User.new(email: "darrenwong06@gmail.com", password: 123)
-u.save!(:validate => false)
+(1..20).each do
+  Table.create(capacity: 4, restaurant_id: 1)
+end
 
-u.reservations.create(date: "2014-02-22", time_begin: "21:46:10", time_end: "23:00:00", party_size: 4)
-u.reservations.create(date: "2014-11-12", time_begin: "21:46:10", time_end: "16:00:00", party_size: 3)
+Server.create(name: "Joan", restaurant_id: 1)
+Server.create(name: "Jim", restaurant_id: 1)
+Server.create(name: "Darren", restaurant_id: 1)
+Server.create(name: "Franco", restaurant_id: 1)
+Server.create(name: "Jackson", restaurant_id: 1)
+Server.create(name: "Stephanie", restaurant_id: 1)
+Server.create(name: "Nina", restaurant_id: 1)
+Server.create(name: "Simone", restaurant_id: 1)
+Server.create(name: "Robert", restaurant_id: 1)
+Server.create(name: "Tripta", restaurant_id: 1)
 
-u.reservations.first.restaurant = Restaurant.first
-u.reservations.first.restaurant 
+Reservation.create(date: "2014-03-14", time_begin: "18:30:00", time_end: "20:00:00", party_size: 5, user_id: 1, restaurant_id: 1, server_id: 1)
+Reservation.create(date: "2014-04-13", time_begin: "17:30:00", time_end: "19:00:00", party_size: 2, user_id: 1, restaurant_id: 1, server_id: 2)
 
-u = User.new(email: "fnc314@gmail.com", password: 123, admin: true)
-u.save!(:validate => false)
-
-u.reservations.create(date: "2014-08-8", time_begin: "21:46:10", time_end: "08:00:00", party_size: 8)
-u.reservations.create(restaurant_id: 2, date: "2015-12-8", time_begin: "22:46:10", time_end: "10:00:00", party_size: 13)
-
-u = User.new(email: "jacksonsemail@gmail.com", password: 123, admin: true)
-u.save!(:validate => false)
-
-u.reservations.create(date: "2014-08-8", time_begin: "21:46:10", time_end: "08:00:00", party_size: 8)
-u.reservations.create(date: "2015-12-8", time_begin: "22:46:10", time_end: "10:00:00", party_size: 13)
-
-
+Reservetable.create(reservation_id: 1, table_id: 2)
+Reservetable.create(reservation_id: 1, table_id: 4)
+Reservetable.create(reservation_id: 2, table_id: 1)
 

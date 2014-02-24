@@ -1,6 +1,4 @@
 class Server < ActiveRecord::Base
-  has_many :reservations, through: :reserv_serv
-  has_many :reserv_servs
+  has_many :reservations
   belongs_to :restaurant
-
 end
