@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
   
   include ReservationsHelper
+  require 'time'
 
   def index
     @reservations = Reservation.all
@@ -12,6 +13,11 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
+    @time = ["16:00:00", "18:30:00", "19:00:00", "19:30:00", "20:00:00", "20:30:00"]
+    @time.each do |time|
+    Time.parse(time)
+    binding.pry
+  end
   end
 
   def create

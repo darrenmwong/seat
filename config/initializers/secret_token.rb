@@ -9,4 +9,6 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Seat::Application.config.secret_key_base = '47271d1fa014d15c0da3c13622559ac4806c5997caa445d46299ee1e61b5f6bbc3abe287fe608d1971c463f822477ea58b1bb581faaba09b541de303606c0502'
+Seat::Application.config.secret_key_base="651521125583dcbcdd5ff62d15eb6094627a21a4fbfea6311dccea161223d64b0c9d1d945cb728296e810b0ac1f4bcf5b59f7dc7e485f9effd693a9ff0789943"
+
+

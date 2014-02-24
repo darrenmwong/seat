@@ -1,2 +1,13 @@
-<h1>Reservations#new</h1>
-<p>Find me in app/views/reservations/new.html.erb</p>
+<%= form_for @reservation do |f| %>
+ <%= f.label :date %><br>
+  <%= f.date_field :date %><br>
+    <%= f.label :party_size %><br>
+  <%= f.number_field :party_size, in: 1..24 %> <br>
+<% @time.each do |time| %>
+  <%= f.label time %> <br>
+<%= radio_button_tag :time_begin,  l(time,format: :default) %>
+<% end %>
+<%= f.submit %>
+<% end %>
+
+
