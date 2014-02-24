@@ -22,18 +22,24 @@ class ReservationsController < ApplicationController
 
   def create
 
-
     new_res = Reservation.create(permit_with_time_formatting)
 
     # Use method from ReservatoinsHelper to determine
     # the end of a reservation.  Set that value to new instance of Reservation
     time_end = end_time_calculator(new_res[:time_begin])
     new_res.update_attributes(time_end: time_end)
+    
+    #call last reservation for JSON request
     @new_reservation = Reservation.last
     respond_to do |f|
-      f.html
+      f.html { redirect_to reservation_path(@new_reservation.id) }
       f.json { render json: @new_reservation, only: [:date, :time_begin, :party_size] }
     end
+
+  end
+
+  def show
+    @reservation = Reservation.find(params[:id])
   end
 
   def edit
