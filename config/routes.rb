@@ -1,9 +1,17 @@
 Seat::Application.routes.draw do
   resources :reservations
   resources :servers
-  root :to => "home#index"
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  resources :omniauth_callbacks
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   resources :users
+  devise_scope :user do
+    get 'sign_in', :to => 'devise/sessions#new'
+    get 'sign_out', :to => 'devise/sessions#destroy'
+  end
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+  root :to => "home#index"
 end
 
 
