@@ -40,27 +40,31 @@ Server.create
 
 u = User.new(email: "darrenwong06@gmail.com",confirmation_token: "JM2yyqok9IaB6UACSlbnz8bHdvjzrMnPvVMSiC/BNTA=", confirmation_sent_at: "2013-10-29 00:00:00", confirmed_at: "2013-11-29 00:00:00", password: 123)
 u.save!(:validate => false)
-
-u.reservations.create(date: "2014-02-22", time_begin: "21:46:10", time_end: "23:00:00", party_size: 4)
-u.reservations.create(date: "2014-11-12", time_begin: "21:46:10", time_end: "16:00:00", party_size: 3)
+u.reservations.create(date: "2014-02-22", time_begin: "21:46:10", time_end: "23:00:00", party_size: 4, restaurant_id: 1)
+u.reservations.create(date: "2014-11-12", time_begin: "21:46:10", time_end: "16:00:00", party_size: 3, restaurant_id: 2)
 u.reservations.first.reserv_tables.create(reservation_id: 1, table_id: 1)
 u.reservations.second.reserv_tables.create(reservation_id: 1, table_id: 12)
-
 u.reservations.first.restaurant = Restaurant.first
 u.reservations.first.restaurant
 
 
 u = User.new(email: "fnc314@gmail.com", password: 123, admin: true)
 u.save!(:validate => false)
-
-u.reservations.create(date: "2014-08-8", time_begin: "21:46:10", time_end: "08:00:00", party_size: 8)
+u.reservations.create(date: "2014-08-8", time_begin: "21:46:10", time_end: "08:00:00", party_size: 5, restaurant_id: 1)
+u.reservations.create(date: "2014-08-8", time_begin: "21:46:10", time_end: "08:00:00", party_size: 8, restaurant_id: 2)
 u.reservations.create(restaurant_id: 2, date: "2015-12-8", time_begin: "22:46:10", time_end: "10:00:00", party_size: 13)
+u.reservations.first.reserv_tables.create(reservation_id: 3, table_id: 3)
+u.reservations.second.reserv_tables.create(reservation_id: 4, table_id: 15)
+
+
+
 
 u = User.new(email: "jacksonsemail@gmail.com", password: 123, admin: true)
 u.save!(:validate => false)
-
-u.reservations.create(date: "2014-08-8", time_begin: "21:46:10", time_end: "08:00:00", party_size: 8)
-u.reservations.create(date: "2015-12-8", time_begin: "22:46:10", time_end: "10:00:00", party_size: 13)
+u.reservations.create(date: "2014-08-8", time_begin: "21:46:10", time_end: "08:00:00", party_size: 8, restaurant_id: 1)
+u.reservations.create(date: "2015-12-8", time_begin: "22:46:10", time_end: "10:00:00", party_size: 13, restaurant_id: 2)
+u.reservations.first.reserv_tables.create(reservation_id: 5, table_id: 5)
+u.reservations.second.reserv_tables.create(reservation_id: 6, table_id: 14)
 
 
 
