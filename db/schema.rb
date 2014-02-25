@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20140225004217) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "restaurant_id"
+    t.integer  "restaurant_id", default: 1
     t.integer  "server_id"
   end
 
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20140225004217) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "restaurant_id"
+    t.integer  "restaurant_id", default: 1
   end
 
   add_index "servers", ["restaurant_id"], name: "index_servers_on_restaurant_id", using: :btree
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20140225004217) do
     t.integer  "capacity"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "restaurant_id"
+    t.integer  "restaurant_id", default: 1
   end
 
   add_index "tables", ["restaurant_id"], name: "index_tables_on_restaurant_id", using: :btree
