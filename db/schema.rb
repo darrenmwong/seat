@@ -49,26 +49,6 @@ ActiveRecord::Schema.define(version: 20140225004217) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "reserv_servs", force: true do |t|
-    t.integer  "reservation_id"
-    t.integer  "server_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "reserv_servs", ["reservation_id"], name: "index_reserv_servs_on_reservation_id", using: :btree
-  add_index "reserv_servs", ["server_id"], name: "index_reserv_servs_on_server_id", using: :btree
-
-  create_table "reserv_tables", force: true do |t|
-    t.integer  "reservation_id"
-    t.integer  "table_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "reserv_tables", ["reservation_id"], name: "index_reserv_tables_on_reservation_id", using: :btree
-  add_index "reserv_tables", ["table_id"], name: "index_reserv_tables_on_table_id", using: :btree
-
   create_table "reservations", force: true do |t|
     t.datetime "begin"
     t.datetime "end"
@@ -126,11 +106,9 @@ ActiveRecord::Schema.define(version: 20140225004217) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "restaurant_id"
-    t.integer  "server_id"
   end
 
   add_index "tables", ["restaurant_id"], name: "index_tables_on_restaurant_id", using: :btree
-  add_index "tables", ["server_id"], name: "index_tables_on_server_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -160,12 +138,9 @@ ActiveRecord::Schema.define(version: 20140225004217) do
     t.integer  "invitations_count",      default: 0
     t.integer  "phone_number"
     t.boolean  "admin",                  default: false
-    t.string   "uid"
-    t.string   "provider"
     t.string   "image"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
