@@ -2,6 +2,14 @@ class ReservationsController < ApplicationController
   
   include ReservationsHelper
 
+  # def admin_redirect
+  #   if current_user.admin?
+  #     redirect to admin_reservations_path
+  #   else
+  #     redirect to new_reservation_path
+  #   end
+  # end
+
   def index
     @reservations = Reservation.all
     respond_to do |f|
