@@ -13,24 +13,19 @@ class ReservationsController < ApplicationController
   def new
     @user = current_user
     @reservation = Reservation.new
-    @times = []
-    hours = [18, 19, 20, 21]
-    hours.each do |x|
-      @times << DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day, hour = x)
-      @times << DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day, hour = x, min = 30)
-    end
   end
 
   def create
-    new_params = params.require(:reservation).permit(:begin, :party_size)
+    new_party = params.require(:reservation).permit(:party_size)
     
-    # Extract faux date entries from Params
+    # Extract date entries from params
     new_date = params.require(:reservation).permit(:date)
-    
-    # Create new DateTime object with Date from Params as date and Time from user input (Radio Buttons)
-    new_params[:begin] = DateTime.new(new_date["date(1i)"].to_i, new_date["date(2i)"].to_i, new_date["date(3i)"].to_i, new_params[:begin].to_datetime.hour, new_params[:begin].to_datetime.min)
+
+    # Create new DateTime object with each piece of date hash in params hash
+    new_date[:begin] = DateTime.new(new_date["date(1i)"].to_i, new_date["date(2i)"].to_i, new_date["date(3i)"].to_i, new_date["date(4i)"].to_i, new_date["date(5i)"].to_i)
+    new_params = { party_size: new_party[:party_size], begin: new_date[:begin] }
     new_res = Reservation.create(new_params)
-    
+
     # Use method from ReservatoinsHelper to determine
     # the end of a reservation.  Set that value to new instance of Reservation
     time_end = end_time_calculator(new_res[:begin])
