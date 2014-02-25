@@ -21,19 +21,21 @@ class ReservationsController < ApplicationController
   end
 
   def create
-
-    new_res = Reservation.create(permit_with_time_formatting)
-
+    new_params = params.require(:reservation).permit(:date, :time_begin, :party_size)
+    new_params[:time_begin] = new_params[:time_begin].to_time
+    new_res = Reservation.create(new_params)
+    binding.pry
     # Use method from ReservatoinsHelper to determine
     # the end of a reservation.  Set that value to new instance of Reservation
     time_end = end_time_calculator(new_res[:time_begin])
+    binding.pry
     new_res.update_attributes(time_end: time_end)
+    binding.pry
     
-    #call last reservation for JSON request
-    @new_reservation = Reservation.last
+    
     respond_to do |f|
-      f.html { redirect_to reservation_path(@new_reservation.id) }
-      f.json { render json: @new_reservation, only: [:date, :time_begin, :party_size] }
+      f.html { redirect_to reservation_path(new_res.id) }
+      # f.json { render json: @new_res, only: [:date, :time_begin, :party_size] }
     end
 
   end
@@ -53,10 +55,11 @@ class ReservationsController < ApplicationController
 
   private
 
-    def permit_with_time_formatting    
-      new_params = params.require(:reservation).permit(:date, :time_begin, :party_size)
-      new_params[:time_begin] = new_params[:time_begin].to_time
-      new_params
-    end
+    # def permit_with_time_formatting    
+      
+    #   new_params[:time_begin] = new_params[:time_begin].to_time
+    #   new_params
+    #   binding.pry
+    # end
 
 end

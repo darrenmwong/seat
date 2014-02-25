@@ -17,9 +17,8 @@ ActiveRecord::Schema.define(version: 20140224051411) do
   enable_extension "plpgsql"
 
   create_table "reservations", force: true do |t|
-    t.date     "date"
-    t.time     "time_begin"
-    t.time     "time_end"
+    t.datetime "begin"
+    t.datetime "end"
     t.integer  "party_size"
     t.datetime "created_at"
     t.datetime "updated_at"
