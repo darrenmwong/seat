@@ -9,6 +9,6 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Seat::Application.config.secret_key_base=ENV['SECRET_KEY_BASE']
+Seat::Application.config.secret_key_base='e563550b6bacdb728cd866cc44ef6e7aac990533c4a12a5e8c6829fd56152e593bc469bb19433129abe6761d3b99156aa2d96406825cb7fcece5349e46e769eb'
 
 
