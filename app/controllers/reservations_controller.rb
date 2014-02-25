@@ -51,21 +51,30 @@ class ReservationsController < ApplicationController
   end
 
   def edit
+    @reservation = Reservation.find(params[:id])
   end
 
   def update
+    reservation = Reservation.find(params[:id])
+    if current_user.admin?
+      updated_info = params.require(:reservation).permit(:party_size, :begin, :end, :server_id, :tables, :restaurant_id)
+      reservation.update_attributes(updated_info)
+      redirect_to admin_reservation_path(reservation.id)
+    else
+      updated_info = params.require(:reservation).permit(:party_size, :begin)
+      reservation.update_attributes(updated_info)
+      redirect_to reservation_path(reservation.id)
+    end
   end
 
   def delete
+    reservation = Reservation.find(params[:id])
+    reservation.destroy
+    if current_user.admin?
+      redirect_to admin_reservations_path
+    else
+      redirect_to reservations_path
+    end
   end
-
-  private
-
-    # def permit_with_time_formatting    
-      
-    #   new_params[:time_begin] = new_params[:time_begin].to_time
-    #   new_params
-    #   binding.pry
-    # end
 
 end

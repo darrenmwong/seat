@@ -1,16 +1,17 @@
 ActiveAdmin.register Reservation do
 
    index do
-    column :date
-    column :time_begin
-    column :party_size
+    column "Scheduled Date", :begin, format: :default
+    column "Party Size", :party_size
+    column "Server", :server_id #do |id| Server.find(id).name end
+    # filter :server_id, as: :check_boxes, collection: proc { Server.all }
     default_actions
    
   end
 
   controller do
     def permitted_params
-      params.permit reservation: [ :time_begin, :time_end, :date, :party_size, :image_file_size, :created_at, :updated_at ]
+      params.permit reservation: [ :begin, :end, :party_size, :restaurant_id, :server_id, :tables, :image_file_size ]
     end
   end
 
