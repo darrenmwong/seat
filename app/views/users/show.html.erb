@@ -3,7 +3,7 @@
 <p>Email: <%= @user.email if @user.email %></p>
 <% @reservations.each do |r| %>
 <%= r.restaurant.name %><br>
-<%= l(r.begin, format: :default) %>
+<%= l(r.begin, format: :default) %><br>
 <% end %>
 <br>
 <%= link_to 'Edit account', edit_user_path %>
