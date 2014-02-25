@@ -6,6 +6,8 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Seat" %>">
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+        <link href="stylesheet.css" rel="stylesheet" type="text/css">
+
     <%= csrf_meta_tags %>
   </head>
   <body>

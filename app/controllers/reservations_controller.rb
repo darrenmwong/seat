@@ -40,7 +40,7 @@ class ReservationsController < ApplicationController
     new_res.update_attributes(end: time_end)
     
     respond_to do |f|
-      f.html { redirect_to reservation_path(new_res.id) }
+      f.html { redirect_to user_reservation_path(current_user.id, new_res.id) }
       # f.json { render json: @new_res, only: [:date, :time_begin, :party_size] }
     end
 
