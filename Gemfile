@@ -19,6 +19,7 @@ gem 'redis'
 gem 'sidekiq'
 gem 'rails_config'
 gem 'omniauth-facebook', '1.4.0'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :development do
   gem 'better_errors'

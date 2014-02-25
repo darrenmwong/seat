@@ -17,11 +17,19 @@ describe ReservationsController do
   end
 
   describe "GET 'create'" do
+  
     it "returns http success" do
       get 'create'
       response.should be_success
     end
-  end
+
+    it "should return the values made" do
+      params[:date] = Tue, 25 Feb 2014 19:30:00 UTC +00:00
+      params[:party_size] = 2
+      post '/reservations'
+      Reservation.last.date.should == params[:date]
+
+        end
 
   describe "GET 'edit'" do
     it "returns http success" do
