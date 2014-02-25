@@ -19,8 +19,14 @@ class ReservationsController < ApplicationController
   end
 
   def new
+
     @user = current_user
+    if @user.nil?
+      flash[:error] = "Must be signed in to make reservation"
+      redirect_to sign_in_path
+  else
     @reservation = Reservation.new
+  end
   end
 
   def create
