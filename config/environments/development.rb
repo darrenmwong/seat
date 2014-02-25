@@ -30,14 +30,11 @@ Seat::Application.configure do
   config.action_mailer.smtp_settings = {
     :address => "smtp.gmail.com",
     :port => 587,
-    :domain => "gmail.com",
-     # domain: ENV["DOMAIN_NAME"],
+    :domain => ENV["DOMAIN_NAME"],
     :authentication => "plain",
     :enable_starttls_auto => true,
-    :user_name => "eatwithseat@gmail.com",
-    :password => "generalassembly"
-    # user_name: ENV["GMAIL_USERNAME"],
-    # password: ENV["GMAIL_PASSWORD"]
+    :user_name => ENV["GMAIL_USERNAME"],
+    :password => ENV["GMAIL_PASSWORD"]
   }
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
