@@ -2,7 +2,7 @@
   
   <%= f.label "When?" %> <br>
   <%= f.datetime_select :date, { :twelve_hour => true, :ampm => true, :minute_step => 30,  
-    :start_hour => 18, :end_hour => 21 } %> <br>
+    :start_hour => 18, :end_hour => 21} %> <br>
 
   <%= f.label "For How Many?" %> <br>
   <%= f.number_field :party_size, in: 1..24, value: 1 %> <br><br>
