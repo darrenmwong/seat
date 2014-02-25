@@ -52,11 +52,11 @@ ActiveRecord::Schema.define(version: 20140225004217) do
   create_table "reservations", force: true do |t|
     t.datetime "begin"
     t.datetime "end"
-    t.integer  "party_size"
+    t.integer  "party_size",    default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "restaurant_id"
+    t.integer  "restaurant_id", default: 1
     t.integer  "server_id"
   end
 
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20140225004217) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "restaurant_id"
+    t.integer  "restaurant_id", default: 1
   end
 
   add_index "servers", ["restaurant_id"], name: "index_servers_on_restaurant_id", using: :btree
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20140225004217) do
     t.integer  "capacity"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "restaurant_id"
+    t.integer  "restaurant_id", default: 1
   end
 
   add_index "tables", ["restaurant_id"], name: "index_tables_on_restaurant_id", using: :btree
@@ -138,6 +138,8 @@ ActiveRecord::Schema.define(version: 20140225004217) do
     t.integer  "invitations_count",      default: 0
     t.integer  "phone_number"
     t.boolean  "admin",                  default: false
+    t.string   "provider"
+    t.string   "uid"
     t.string   "image"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
