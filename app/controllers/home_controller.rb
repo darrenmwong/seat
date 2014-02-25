@@ -9,7 +9,6 @@ class HomeController < ApplicationController
    def sign_in
     @user = current_user
      if @user.nil?
-      binding.pry
        redirect_to users_path
      elsif current_user.admin?
        redirect_to admin_reservations_path
