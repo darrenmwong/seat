@@ -26,7 +26,7 @@ group :development do
   gem 'pry'
   gem 'hub', :require=>nil
   gem 'rails_layout'
-  gem 'pry'
+
 end
 group :development, :test do
   gem 'rspec-rails'
