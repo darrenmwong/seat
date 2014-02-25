@@ -15,22 +15,24 @@ class ReservationsController < ApplicationController
     @times = []
     hours = [18, 19, 20, 21]
     hours.each do |x|
-      @times << Time.new(Time.now.year, Time.now.month, Time.now.day, hour = x)
-      @times << Time.new(Time.now.year, Time.now.month, Time.now.day, hour = x, min = 30)
+      @times << DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day, hour = x)
+      @times << DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day, hour = x, min = 30)
     end
   end
 
   def create
-    new_params = params.require(:reservation).permit(:date, :time_begin, :party_size)
-    new_params[:time_begin] = new_params[:time_begin].to_time
-    new_res = Reservation.create(new_params)
+    new_params = params.require(:reservation).permit(:begin, :party_size)
+    new_date = params.require(:reservation).permit(:date)
     binding.pry
+    new_params[:begin] = DateTime.new(new_date["date(1i)"].to_i, new_date["date(2i)"].to_i, new_date["date(3i)"].to_i, new_params[:begin].to_datetime.hour, new_params[:begin].to_datetime.min)
+    new_res = Reservation.create(new_params)
+    #binding.pry
     # Use method from ReservatoinsHelper to determine
     # the end of a reservation.  Set that value to new instance of Reservation
-    time_end = end_time_calculator(new_res[:time_begin])
-    binding.pry
-    new_res.update_attributes(time_end: time_end)
-    binding.pry
+    time_end = end_time_calculator(new_res[:begin])
+    #binding.pry
+    new_res.update_attributes(end: time_end)
+    #binding.pry
     
     
     respond_to do |f|
