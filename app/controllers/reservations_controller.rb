@@ -55,6 +55,10 @@ class ReservationsController < ApplicationController
   end
 
   def update
+    # Do we need to add a specific method/mean for table to be associated?
+    # Performing a .each on the collection of tables and adding something like
+    # reservation.tables << Table.find(id) where id is extracted from :tables
+
     reservation = Reservation.find(params[:id])
     if current_user.admin?
       updated_info = params.require(:reservation).permit(:party_size, :begin, :end, :server_id, :tables, :restaurant_id)
