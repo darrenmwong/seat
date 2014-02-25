@@ -1,8 +1,7 @@
 ActiveAdmin.register Reservation do
 
    index do
-    column :date
-    column :time_begin
+    column :begin
     column :party_size
     default_actions
    
@@ -10,7 +9,7 @@ ActiveAdmin.register Reservation do
 
   controller do
     def permitted_params
-      params.permit reservation: [ :time_begin, :time_end, :date, :party_size, :image_file_size, :created_at, :updated_at ]
+      params.permit reservation: [ :begin, :end, :party_size, :image_file_size, :created_at, :updated_at ]
     end
   end
 
