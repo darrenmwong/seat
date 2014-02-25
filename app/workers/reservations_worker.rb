@@ -1,8 +1,8 @@
-class ReservationsWorker
-  require Sidekiq::Worker
+# class ReservationsWorker
+#   include Sidekiq::Worker
 
-  def perform(res_id)
-    reservation = Reservation.find(res_id)
+#   def perform(res_id)
+#     reservation = Reservation.find(res_id)
     
-  end
-end
+#   end
+# end

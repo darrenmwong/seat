@@ -16,6 +16,7 @@ Seat::Application.routes.draw do
   root :to => "home#index"
 end
 
+# Do we need table routes?
 
 #                          Prefix Verb       URI Pattern                                Controller#Action
 #          new_admin_user_session GET        /admin/login(.:format)                     active_admin/devise/sessions#new
