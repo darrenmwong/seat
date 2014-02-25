@@ -23,8 +23,10 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'foreman'
+  gem 'pry'
   gem 'hub', :require=>nil
   gem 'rails_layout'
+
 end
 group :development, :test do
   gem 'rspec-rails'

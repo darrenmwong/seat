@@ -16,6 +16,9 @@
 # puts 'user: ' << user.name
 # user.confirm!
 # user.add_role :admin
+User.create!(name: "darren", email: "darrenwong06@gmail.com", password: 123456789, password_confirmation: 123456789, admin: true, )
+User.create!(name: "brian", email: "brianwong06@gmail.com", password: 123456789, password_confirmation: 123456789, admin: false)
+
 
 Restaurant.create(name: "Alexander's", num_of_tables: 30)
 
