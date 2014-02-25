@@ -3,7 +3,7 @@ class CreateReservations < ActiveRecord::Migration
     create_table :reservations do |t|
       t.datetime :begin
       t.datetime :end
-      t.integer :party_size
+      t.integer :party_size, default: 1
 
       t.timestamps
     end

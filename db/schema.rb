@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20140225004217) do
   create_table "reservations", force: true do |t|
     t.datetime "begin"
     t.datetime "end"
-    t.integer  "party_size"
+    t.integer  "party_size",    default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -138,6 +138,8 @@ ActiveRecord::Schema.define(version: 20140225004217) do
     t.integer  "invitations_count",      default: 0
     t.integer  "phone_number"
     t.boolean  "admin",                  default: false
+    t.string   "provider"
+    t.string   "uid"
     t.string   "image"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
