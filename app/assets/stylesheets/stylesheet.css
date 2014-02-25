@@ -1,0 +1,9 @@
+.imgSize {
+  max-width: 100px;
+  max-length: auto;
+}
+
+.navBarChange {
+  a:link {color: black;}
+  
+}

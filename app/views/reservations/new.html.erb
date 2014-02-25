@@ -5,7 +5,7 @@
     :start_hour => 18, :end_hour => 21 } %> <br>
 
   <%= f.label "For How Many?" %> <br>
-  <%= f.number_field :party_size, in: 1..24 %> <br>
+  <%= f.number_field :party_size, in: 1..24, value: 1 %> <br><br>
 
 
   <%= f.submit %>

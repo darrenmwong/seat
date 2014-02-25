@@ -5,7 +5,12 @@ Seat::Application.routes.draw do
   resources :servers
   resources :omniauth_callbacks
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-  resources :users
+
+  resources :users do
+    resources :reservations
+  end
+
+
   devise_scope :user do
     get 'sign_in', :to => 'devise/sessions#new'
     get 'sign_out', :to => 'devise/sessions#destroy'
@@ -13,7 +18,9 @@ Seat::Application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
+  get '/home/sign_in', to: 'home#sign_in', as: 'home_sign_in'
   root :to => "home#index"
+
 end
 
 # Do we need table routes?
