@@ -1,4 +1,6 @@
 Seat::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :reservations
   resources :servers
   resources :omniauth_callbacks
