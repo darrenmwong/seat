@@ -2,7 +2,8 @@
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
 <% @reservations.each do |r| %>
-binding.pry
-<%= r %>
+<%= r.restaurant.name %><br>
+<%= l(r.begin, format: :default) %>
 <% end %>
+<br>
 <%= link_to 'Edit account', edit_user_path %>

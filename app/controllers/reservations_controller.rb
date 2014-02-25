@@ -30,15 +30,16 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @user = current_user
     new_party = params.require(:reservation).permit(:party_size)
-    
+  
     # Extract date entries from params
     new_date = params.require(:reservation).permit(:date)
 
     # Create new DateTime object with each piece of date hash in params hash
     new_date[:begin] = DateTime.new(new_date["date(1i)"].to_i, new_date["date(2i)"].to_i, new_date["date(3i)"].to_i, new_date["date(4i)"].to_i, new_date["date(5i)"].to_i)
     new_params = { party_size: new_party[:party_size], begin: new_date[:begin] }
-    new_res = Reservation.create(new_params)
+    new_res = @user.reservations.create(new_params)
 
     # Use method from ReservatoinsHelper to determine
     # the end of a reservation.  Set that value to new instance of Reservation
