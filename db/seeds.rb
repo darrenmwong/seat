@@ -41,10 +41,4 @@ Server.create(name: "Simone", restaurant_id: 1)
 Server.create(name: "Robert", restaurant_id: 1)
 Server.create(name: "Tripta", restaurant_id: 1)
 
-Reservation.create(date: "2014-03-14", time_begin: "18:30:00", time_end: "20:00:00", party_size: 5, user_id: 1, restaurant_id: 1, server_id: 1)
-Reservation.create(date: "2014-04-13", time_begin: "17:30:00", time_end: "19:00:00", party_size: 2, user_id: 1, restaurant_id: 1, server_id: 2)
-
-Reservetable.create(reservation_id: 1, table_id: 2)
-Reservetable.create(reservation_id: 1, table_id: 4)
-Reservetable.create(reservation_id: 2, table_id: 1)
 
