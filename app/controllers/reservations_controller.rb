@@ -57,7 +57,7 @@ class ReservationsController < ApplicationController
   def update
     reservation = Reservation.find(params[:id])
     if current_user.admin?
-      updated_info = params.require(:reservation).permit(:party_size, :begin, :end, :server_id, :tables)
+      updated_info = params.require(:reservation).permit(:party_size, :begin, :end, :server_id, :tables, :restaurant_id)
       reservation.update_attributes(updated_info)
       redirect_to admin_reservation_path(reservation.id)
     else
