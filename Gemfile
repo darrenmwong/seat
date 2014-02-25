@@ -15,16 +15,20 @@ gem 'devise_invitable'
 gem 'pg'
 gem 'rolify'
 gem 'unicorn'
-gem 'unicorn-rails'
 gem 'redis'
 gem 'sidekiq'
 gem 'rails_config'
 gem 'omniauth-facebook', '1.4.0'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'unicorn-rails'
   gem 'foreman'
   gem 'pry'
   gem 'hub', :require=>nil
