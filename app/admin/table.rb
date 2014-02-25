@@ -23,7 +23,7 @@ ActiveAdmin.register Table do
   #  permitted
   # end
 
-   controller do
+  controller do
     def permitted_params
       params.permit reservation: [ :begin, :end, :party_size, :restaurant_id, :server_id, :tables, :image_file_size ]
     end
