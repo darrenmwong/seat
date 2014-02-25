@@ -12,6 +12,8 @@ module Seat
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
       g.test_framework :rspec
+
+      I18n.enforce_available_locales = false
       
       
       
