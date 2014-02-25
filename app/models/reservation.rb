@@ -4,7 +4,9 @@ class Reservation < ActiveRecord::Base
   belongs_to :restaurant
   has_many :tables, through: :reservetables
   has_many :reservetables
-  
+  validates :begin, presence: true
+  validates :party_size, :numericality => { :greater_than => 0, :less_than => 24 }, :presence => true
+
   def date
 
   end
