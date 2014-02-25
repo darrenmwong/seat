@@ -5,4 +5,16 @@ class Reservation < ActiveRecord::Base
   has_many :tables, through: :reservetables
   has_many :reservetables
   
+  def date
+
+  end
+
+  def start_time
+
+  end
+
+  def end_time
+
+  end
+  
 end
