@@ -22,18 +22,18 @@ class ReservationsController < ApplicationController
 
   def create
     new_params = params.require(:reservation).permit(:begin, :party_size)
+    
+    # Extract faux date entries from Params
     new_date = params.require(:reservation).permit(:date)
-    binding.pry
+    
+    # Create new DateTime object with Date from Params as date and Time from user input (Radio Buttons)
     new_params[:begin] = DateTime.new(new_date["date(1i)"].to_i, new_date["date(2i)"].to_i, new_date["date(3i)"].to_i, new_params[:begin].to_datetime.hour, new_params[:begin].to_datetime.min)
     new_res = Reservation.create(new_params)
-    #binding.pry
+    
     # Use method from ReservatoinsHelper to determine
     # the end of a reservation.  Set that value to new instance of Reservation
     time_end = end_time_calculator(new_res[:begin])
-    #binding.pry
     new_res.update_attributes(end: time_end)
-    #binding.pry
-    
     
     respond_to do |f|
       f.html { redirect_to reservation_path(new_res.id) }
