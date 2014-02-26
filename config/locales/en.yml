@@ -21,9 +21,9 @@
 
 en:
   hello: "Hello world"
-  date:
-    formats:
-      default: "%A %B %d, %Y"
   time:
     formats:
-      default: "%l:%M %p"
+      default: "%A %B %d, %Y at %l:%M %p"
+  # time:
+  #   formats:
+  #     default: ""
