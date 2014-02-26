@@ -3,7 +3,7 @@ ActiveAdmin.register Reservation do
    index do
     column "Scheduled Date", :begin, format: :default
     column "Party Size", :party_size
-    column "Server", :server_id #do |id| Server.find(id).name end
+    column(:server_id) { |x| Server.find(x).name }#, "Server", :server_id #do |id| Server.find(id).name end
     # filter :server_id, as: :check_boxes, collection: proc { Server.all }
     default_actions
    

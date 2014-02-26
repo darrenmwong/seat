@@ -6,7 +6,7 @@ class ReservationsController < ApplicationController
     @reservations = Reservation.all
     respond_to do |f|
       f.html
-      f.json { render json: @reservations, only: [:date, :time_begin, :party_size] }
+      f.json { render json: @reservations, only: [:begin, :party_size] }
     end
   end
 
@@ -29,17 +29,18 @@ class ReservationsController < ApplicationController
     
     # Create new DateTime object with each piece of date hash in params hash
     new_date[:begin] = DateTime.new(new_date["begin(1i)"].to_i, new_date["begin(2i)"].to_i, new_date["begin(3i)"].to_i, new_date["begin(4i)"].to_i, new_date["begin(5i)"].to_i)
+    
     new_params = { party_size: new_party[:party_size], begin: new_date[:begin] }
+    
     new_res = @user.reservations.create(new_params)
 
     # Use method from ReservatoinsHelper to determine
     # the end of a reservation.  Set that value to new instance of Reservation
     time_end = end_time_calculator(new_res[:begin])
     new_res.update_attributes(end: time_end)
-    
+    reservation_confirmation_email_send(@user)
     respond_to do |f|
-      f.html { redirect_to user_reservation_path(current_user.id, new_res.id) }
-      # f.json { render json: @new_res, only: [:date, :time_begin, :party_size] }
+      f.html { redirect_to user_reservation_path(@user.id, new_res.id) }
     end
 
   end
@@ -56,7 +57,7 @@ class ReservationsController < ApplicationController
   def update
     # Do we need to add a specific method/mean for table to be associated?
     # Performing a .each on the collection of tables and adding something like
-    # reservation.tables << Table.find(id) where id is extracted from :tables
+    # reservation.tables << Table.find(id) where id is extracted from :tables "begin(1i)", "begin(2i)", "begin(3i)", "begin(4i)", "begin(5i)"
 
     reservation = Reservation.find(params[:id])
     if current_user.admin?
