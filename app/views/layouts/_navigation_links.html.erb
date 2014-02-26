@@ -1,7 +1,10 @@
 <%# add navigation links to this file %>
 <% if user_signed_in? %>
+<li> <%= link_to "#{current_user.name}", user_path(current_user.id) %> </li>
   <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
 <% else %>
+ <li>   <%= link_to 'Home', root_path, class: 'navbar-brand' %></li>
+
   <li><%= link_to 'Login', new_user_session_path %></li>
   <li>    <%= link_to 'Facebook Login', user_omniauth_authorize_path(:facebook) %> </li>
 <% end %>
@@ -12,7 +15,6 @@
   <li><%= link_to 'Sign up', new_user_registration_path %></li>
 <% end %>
 <% if user_signed_in? %>
-<li> <%= link_to 'Profile', user_path(current_user.id) %> </li>
   <% if current_user.admin? %>
 <li><%= link_to 'Users', users_path %></li>
  <li> <%= link_to 'Admin Dashboard', admin_dashboard_path %> </li>
