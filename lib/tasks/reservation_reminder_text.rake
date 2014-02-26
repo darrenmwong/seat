@@ -1,7 +1,7 @@
 desc "Texts users who have upcoming reservations"
   # Set the custom rake up for scanning reservations.
   task :text_users => :environment do
-    # Reate the deadline date
+    # Ceate the deadline date check_date
     check_date = DateTime.now.to_date + 1.day
     # Gather and sort all reservations
     Reservation.all.sort.each do |res|
@@ -22,7 +22,7 @@ desc "Texts users who have upcoming reservations"
     @client = Twilio::REST::Client.new account_sid, auth_token
 
     @client.account.messages.create(
-      :body => "This is just a friendly reminder that you have a reservation at #{res.restaurant.name} on #{l(res.begin), format: :default)} for #{res.party_size}.  We can't wait to see you.",
+      :body => "This is just a friendly reminder that you have a reservation at #{res.restaurant.name} on #{l(res.begin, format: :default)} for #{res.party_size}.  We can't wait to see you.",
       :to => "#{user.phone_number}",
       :from => ENV['TWILIO_PHONE']) 
 
