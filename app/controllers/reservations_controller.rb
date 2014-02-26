@@ -47,7 +47,6 @@ class ReservationsController < ApplicationController
   def show
     @user = current_user
     @reservation = @user.reservations.find(params[:id])
-    binding.pry
   end
 
   def edit

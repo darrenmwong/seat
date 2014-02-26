@@ -27,3 +27,4 @@ en:
   # time:
   #   formats:
   #     default: "%l:%M %p"
+  # FROM TEXT MESSAGE => "%a. %b. %d %Y @%l:%M %p"

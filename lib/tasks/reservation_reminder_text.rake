@@ -25,7 +25,6 @@ desc "Texts users who have upcoming reservations"
     #format time information, store as ft
     ft = res.begin.strftime("%a. %b. %d %Y @%l:%M %p")
 
-    binding.pry
     @client.account.sms.messages.create(
       :body => "Remember you have a reservation at #{res.restaurant.name} on #{ft} for #{res.party_size} person(s).  We can't wait to seat you!",
       :to => user.phone_number,
