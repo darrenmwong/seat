@@ -10,7 +10,13 @@ desc "Texts users who have upcoming reservations"
       # to twilioText which then performs the necessary actions
       if res.begin.to_date == check_date
         user = res.user
-        twilioText(user,res)
+        
+        # untested logic that will skip reservations 
+        # attached to users with no phone number
+        if user.phone_number != nil 
+          twilioText(user,res)
+        end
+      
       end
       
     end
