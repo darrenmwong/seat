@@ -22,7 +22,6 @@ User.create!(name: "Brian", email: "brianwong06@gmail.com", password: 123456789,
 User.create!(name: "Franco", email: "not_admin@email.com", phone_number: "4127219550", password: 123456789, password_confirmation: 123456789, admin: false)
 User.create!(name: "Franco", email: "admin@email.com", phone_number: "4127219550", password: 123456789, password_confirmation: 123456789, admin: true)
 
-
 Restaurant.create(name: "Alexander's", num_of_tables: 30)
 
 (1..10).each do
