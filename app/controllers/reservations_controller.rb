@@ -78,7 +78,7 @@ class ReservationsController < ApplicationController
     if current_user.admin?
       redirect_to admin_reservations_path
     else
-      redirect_to user_reservations_path(current_user.id)
+      redirect_to user_path(current_user.id)
     end
   end
 
