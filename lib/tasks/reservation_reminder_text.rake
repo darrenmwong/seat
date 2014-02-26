@@ -1,11 +1,13 @@
 desc "Texts users who have upcoming reservations"
-  
+  # Set the custom rake up for scanning reservations.
   task :text_users => :environment do
-    
+    # Reate the deadline date
     check_date = DateTime.now.to_date + 1.day
-
+    # Gather and sort all reservations
     Reservation.all.sort.each do |res|
       
+      # finding the user, and passing those parameters (ActiveRecord Objects) 
+      # to twilioText which then performs the necessary actions
       if res.begin.to_date == check_date
         user = res.user
         twilioText(user,res)
@@ -28,3 +30,11 @@ desc "Texts users who have upcoming reservations"
   end
 
 
+# First round draft at attaching Twilio.
+# >using my account means texts will be sent from a 412 area-code...
+
+# A test will require us to sync up data and then create an appointment for 1 day from current (DateTime.now.day) 
+# and then run the custom rake.  I think we can do `heroku run rake <rake_name>` or we can just do `rake <rake_name>` from Rails Console.  
+# I'm going to investigate after updating.
+
+# After copious testing will I finish setting up Heroku Scheduler (already deployed) to run as necessary.
