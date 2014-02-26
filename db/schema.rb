@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 20140225004217) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
-    t.integer  "phone_number"
+    t.string   "phone_number"
     t.boolean  "admin",                  default: false
     t.string   "provider"
     t.string   "uid"

@@ -15,9 +15,9 @@ class ReservationsController < ApplicationController
     if @user.nil?
       flash[:error] = "Must be signed in to make reservation"
       redirect_to sign_in_path
-  else
-    @reservation = Reservation.new
-  end
+    else
+      @reservation = Reservation.new
+    end
   end
 
   def create
@@ -25,11 +25,11 @@ class ReservationsController < ApplicationController
     new_party = params.require(:reservation).permit(:party_size)
   
     # Extract date entries from params
-    new_date = params.require(:reservation).permit(:date)
-
+    new_date = params.require(:reservation).permit(:begin)
+    binding.pry
     # Create new DateTime object with each piece of date hash in params hash
-    new_date[:begin] = DateTime.new(new_date["date(1i)"].to_i, new_date["date(2i)"].to_i, new_date["date(3i)"].to_i, new_date["date(4i)"].to_i, new_date["date(5i)"].to_i)
-    new_params = { party_size: new_party[:party_size], begin: new_date[:begin] }
+    new_date[:begin] = DateTime.new(new_date["begin(1i)"].to_i, new_date["begin(2i)"].to_i, new_date["begin(3i)"].to_i, new_date["begin(4i)"].to_i, new_date["begin(5i)"].to_i)
+    new_params = { party_size: new_party[:party_size], begin: new_date[:begin], format: :default }
     new_res = @user.reservations.create(new_params)
 
     # Use method from ReservatoinsHelper to determine
@@ -47,6 +47,7 @@ class ReservationsController < ApplicationController
   def show
     @user = current_user
     @reservation = @user.reservations.find(params[:id])
+    binding.pry
   end
 
   def edit

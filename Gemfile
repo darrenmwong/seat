@@ -17,6 +17,7 @@ gem 'unicorn'
 gem 'redis'
 gem 'sidekiq'
 gem 'rails_config'
+gem 'twilio-ruby'
 gem 'omniauth-facebook', '1.4.0'
 gem 'activeadmin', github: 'gregbell/active_admin'
 

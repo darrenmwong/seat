@@ -14,21 +14,28 @@ desc "Texts users who have upcoming reservations"
       end
       
     end
+  end
 
-    def twilioText(user,res)
+  def twilioText(user,res)
 
     account_sid = ENV['TWILIO_SID']
     auth_token = ENV['TWILIO_TOKEN']
     @client = Twilio::REST::Client.new account_sid, auth_token
+    
+    #format time information, store as ft
+    ft = res.begin.strftime("%a. %b. %d %Y @%l:%M %p")
 
-    @client.account.messages.create(
-      :body => "This is just a friendly reminder that you have a reservation at #{res.restaurant.name} on #{l(res.begin, format: :default)} for #{res.party_size}.  We can't wait to see you.",
-      :to => "#{user.phone_number}",
+    binding.pry
+    @client.account.sms.messages.create(
+      :body => "Remember you have a reservation at #{res.restaurant.name} on #{ft} for #{res.party_size} person(s).  We can't wait to seat you!",
+      :to => user.phone_number,
       :from => ENV['TWILIO_PHONE']) 
 
-    end
   end
 
+# :body => 
+# "Remember you have a reservation at Alexander's on Wed. Feb 26, 2014 @ 6:00 PM for # person(s).  We can't wait to seat you!"
+# On User's Phone
 
 # First round draft at attaching Twilio.
 # >using my account means texts will be sent from a 412 area-code...
