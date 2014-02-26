@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-     <link rel="icon" href="http://i.imgur.com/2niHeXP.png" />
+    <link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="/assets/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" href="/assets/images/favicon.ico" />
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Seat" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Seat" %>">
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-        <link href="stylesheet.css" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" type="text/css" >
+
 
     <%= csrf_meta_tags %>
   </head>
