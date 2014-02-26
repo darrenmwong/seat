@@ -7,4 +7,5 @@ class AddSuperadminToUser < ActiveRecord::Migration
       r.password   = 'password'
       r.superadmin = true
     end
+  end
 end
