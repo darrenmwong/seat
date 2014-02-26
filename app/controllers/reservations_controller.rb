@@ -70,13 +70,15 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def delete
-    reservation = Reservation.find(params[:id])
+  def destroy
+    user = User.find(params[:user_id])
+    reservation = user.reservations.find(params[:id])
     reservation.destroy
+
     if current_user.admin?
       redirect_to admin_reservations_path
     else
-      redirect_to users_reservations_path
+      redirect_to user_reservations_path(current_user.id)
     end
   end
 
