@@ -29,7 +29,7 @@ class ReservationsController < ApplicationController
     
     # Create new DateTime object with each piece of date hash in params hash
     new_date[:begin] = DateTime.new(new_date["begin(1i)"].to_i, new_date["begin(2i)"].to_i, new_date["begin(3i)"].to_i, new_date["begin(4i)"].to_i, new_date["begin(5i)"].to_i)
-    new_params = { party_size: new_party[:party_size], begin: new_date[:begin], format: :default }
+    new_params = { party_size: new_party[:party_size], begin: new_date[:begin] }
     new_res = @user.reservations.create(new_params)
 
     # Use method from ReservatoinsHelper to determine
