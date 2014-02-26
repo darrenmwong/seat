@@ -7,4 +7,8 @@ module ReservationsHelper
     return end_time
   end
 
+  def reservation_confirmation_email_send(user)
+    ReservationMailer.reservation_confirmation(user).deliver
+  end
+
 end

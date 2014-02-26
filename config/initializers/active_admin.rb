@@ -147,7 +147,7 @@ ActiveAdmin.setup do |config|
   
   # == Setting a Favicon
   #
-  # config.favicon = '/assets/favicon.ico' <- Make work with http://i.imgur.com/2niHeXP.png
+  config.favicon = '/assets/images/favicon.ico' #<- Make work with http://i.imgur.com/2niHeXP.png
 
 
   # == Removing Breadcrumbs

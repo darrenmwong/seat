@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 ruby '2.1.0'
-gem 'dotenv-rails', :groups => [:development, :test]
 gem 'rails', '4.0.2'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
@@ -18,6 +17,7 @@ gem 'unicorn'
 gem 'redis'
 gem 'sidekiq'
 gem 'rails_config'
+gem 'twilio-ruby'
 gem 'omniauth-facebook', '1.4.0'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
