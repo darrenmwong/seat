@@ -7,3 +7,46 @@
   a:link {color: black;}
   
 }
+
+.btn-custom-edit {
+  background-color: hsl(145, 62%, 68%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cdf3dd", endColorstr="#7adfa4");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#cdf3dd), to(#7adfa4));
+  background-image: -moz-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: -ms-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cdf3dd), color-stop(100%, #7adfa4));
+  background-image: -webkit-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: -o-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: linear-gradient(#cdf3dd, #7adfa4);
+  border-color: #7adfa4 #7adfa4 hsl(145, 62%, 63%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+  -webkit-font-smoothing: antialiased;
+
+}
+
+
+.btn-custom-delete {
+  background-color: hsl(351, 92%, 23%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d20827", endColorstr="#700414");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#d20827), to(#700414));
+  background-image: -moz-linear-gradient(top, #d20827, #700414);
+  background-image: -ms-linear-gradient(top, #d20827, #700414);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d20827), color-stop(100%, #700414));
+  background-image: -webkit-linear-gradient(top, #d20827, #700414);
+  background-image: -o-linear-gradient(top, #d20827, #700414);
+  background-image: linear-gradient(#d20827, #700414);
+  border-color: #700414 #700414 hsl(351, 92%, 18%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
+  -webkit-font-smoothing: antialiased;
+}
+
+
+.a {
+  a:link {text-decoration:none;}
+  a:visited color: black;
+  a:hover color: black;
+}

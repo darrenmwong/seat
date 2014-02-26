@@ -13,8 +13,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def show
     @user = User.find(params[:id])
+    @reservations = @user.reservations.all
   end
   
   def update

@@ -2,14 +2,6 @@ class ReservationsController < ApplicationController
   
   include ReservationsHelper
 
-  # def admin_redirect
-  #   if current_user.admin?
-  #     redirect to admin_reservations_path
-  #   else
-  #     redirect to new_reservation_path
-  #   end
-  # end
-
   def index
     @reservations = Reservation.all
     respond_to do |f|
@@ -19,7 +11,6 @@ class ReservationsController < ApplicationController
   end
 
   def new
-
     @user = current_user
     if @user.nil?
       flash[:error] = "Must be signed in to make reservation"
@@ -30,15 +21,16 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @user = current_user
     new_party = params.require(:reservation).permit(:party_size)
-    
+  
     # Extract date entries from params
     new_date = params.require(:reservation).permit(:date)
 
     # Create new DateTime object with each piece of date hash in params hash
     new_date[:begin] = DateTime.new(new_date["date(1i)"].to_i, new_date["date(2i)"].to_i, new_date["date(3i)"].to_i, new_date["date(4i)"].to_i, new_date["date(5i)"].to_i)
     new_params = { party_size: new_party[:party_size], begin: new_date[:begin] }
-    new_res = Reservation.create(new_params)
+    new_res = @user.reservations.create(new_params)
 
     # Use method from ReservatoinsHelper to determine
     # the end of a reservation.  Set that value to new instance of Reservation
@@ -53,7 +45,8 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    @reservation = Reservation.find(params[:id])
+    @user = current_user
+    @reservation = @user.reservations.find(params[:id])
   end
 
   def edit
@@ -73,17 +66,19 @@ class ReservationsController < ApplicationController
     else
       updated_info = params.require(:reservation).permit(:party_size, :begin)
       reservation.update_attributes(updated_info)
-      redirect_to reservation_path(reservation.id)
+      redirect_to users_reservation_path(reservation.id)
     end
   end
 
-  def delete
-    reservation = Reservation.find(params[:id])
+  def destroy
+    user = User.find(params[:user_id])
+    reservation = user.reservations.find(params[:id])
     reservation.destroy
+
     if current_user.admin?
       redirect_to admin_reservations_path
     else
-      redirect_to reservations_path
+      redirect_to user_path(current_user.id)
     end
   end
 
