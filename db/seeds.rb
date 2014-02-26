@@ -18,7 +18,7 @@
 # user.add_role :admin
 User.create!(name: "Darren", email: "darrenwong06@gmail.com", password: 123456789, password_confirmation: 123456789, admin: true, )
 User.create!(name: "Brian", email: "brianwong06@gmail.com", password: 123456789, password_confirmation: 123456789, admin: false)
-
+AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
 
 Restaurant.create(name: "Alexander's", num_of_tables: 30)
 

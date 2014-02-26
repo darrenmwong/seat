@@ -36,6 +36,7 @@ class ReservationsController < ApplicationController
     # the end of a reservation.  Set that value to new instance of Reservation
     time_end = end_time_calculator(new_res[:begin])
     new_res.update_attributes(end: time_end)
+    binding.pry
     
     respond_to do |f|
       f.html { redirect_to user_reservation_path(current_user.id, new_res.id) }
@@ -74,12 +75,8 @@ class ReservationsController < ApplicationController
     user = User.find(params[:user_id])
     reservation = user.reservations.find(params[:id])
     reservation.destroy
-
-    if current_user.admin?
-      redirect_to admin_reservations_path
-    else
-      redirect_to user_path(current_user.id)
+    redirect_to user_path(current_user.id)
     end
-  end
+  
 
 end
