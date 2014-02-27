@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+  
   include ReservationsHelper
 
   def index
@@ -55,19 +56,18 @@ class ReservationsController < ApplicationController
   end
 
   def update
-    # Do we need to add a specific method/mean for table to be associated?
-    # Performing a .each on the collection of tables and adding something like
-    # reservation.tables << Table.find(id) where id is extracted from :tables "begin(1i)", "begin(2i)", "begin(3i)", "begin(4i)", "begin(5i)"
-
-    reservation = Reservation.find(params[:id])
-    if current_user.admin?
-      updated_info = params.require(:reservation).permit(:party_size, :begin, :end, :server_id, :tables, :restaurant_id)
+    if current_user.superadmin?
+      reservation = Reservation.find(params[:id])
+      updated_info = params.require(:reservation).permit(:party_size, :begin, :end, :server_id, :table_ids, :restaurant_id)
+      updated_info[:table_ids].each { |tid| reservation.tables << tid if tid != "" }
       reservation.update_attributes(updated_info)
+      binding.pry
       redirect_to admin_reservation_path(reservation.id)
     else
+      @reservation = current_user.reservations.find(params[:id])
       updated_info = params.require(:reservation).permit(:party_size, :begin)
-      reservation.update_attributes(updated_info)
-      redirect_to users_reservation_path(reservation.id)
+      @reservation.update_attributes(updated_info)
+      redirect_to user_path(current_user.id)
     end
   end
 
