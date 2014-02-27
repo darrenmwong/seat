@@ -67,7 +67,7 @@ class ReservationsController < ApplicationController
       @reservation = current_user.reservations.find(params[:id])
       updated_info = params.require(:reservation).permit(:party_size, :begin)
       @reservation.update_attributes(updated_info)
-      redirect_to user_reservation_path(current_user.id, @reservation.id)
+      redirect_to user_path(current_user.id)
     end
   end
 
