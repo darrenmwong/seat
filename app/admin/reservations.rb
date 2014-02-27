@@ -1,10 +1,10 @@
 ActiveAdmin.register Reservation do
 
+
    index do
     column "Scheduled Date", :begin, format: :default
     column "Party Size", :party_size
-    column(:server_id) { |x| Server.find(x).name }#, "Server", :server_id #do |id| Server.find(id).name end
-    # filter :server_id, as: :check_boxes, collection: proc { Server.all }
+    column(:server_id) { |x| Server.find(x.server_id).name }
     default_actions
    
   end
@@ -21,7 +21,7 @@ ActiveAdmin.register Reservation do
   #
   # permit_params :list, :of, :attributes, :on, :model
   #
-  # or
+  # or  "Server", name  #{ |reservation| Server.find(reservation.server_id).name }
   #
   # permit_params do
   #  permitted = [:permitted, :attributes]
