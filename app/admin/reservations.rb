@@ -1,6 +1,7 @@
 ActiveAdmin.register Reservation do
 
   form do |f|
+
     f.inputs "Label" do
       f.input :party_size
       f.input :begin
