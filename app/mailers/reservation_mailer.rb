@@ -1,5 +1,5 @@
 class ReservationMailer < ActionMailer::Base
-  default from: "eatwithseat@gmail.com"
+  default from: "eatwithseat@gmail.com"
 
 
   def reservation_confirmation(user)

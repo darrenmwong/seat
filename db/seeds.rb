@@ -17,10 +17,12 @@
 # user.confirm!
 # user.add_role :admin
 
-User.create!(name: "Darren", email: "darrenwong06@gmail.com", password: 123456789, phone_number: "9163976614", password_confirmation: 123456789, admin: true)
-User.create!(name: "Brian", email: "brianwong06@gmail.com", password: 123456789, phone_number: "9163976614", password_confirmation: 123456789, admin: false)
-User.create!(name: "Franco", email: "not_admin@email.com", phone_number: "4127219550", password: 123456789, password_confirmation: 123456789, admin: false)
-User.create!(name: "Franco", email: "admin@email.com", phone_number: "4127219550", password: 123456789, password_confirmation: 123456789, admin: true)
+User.create!(name: "Darren", email: "darrenwong06@gmail.com", password: 123456789, phone_number: "9163976614", password_confirmation: 123456789, superadmin: true)
+User.create!(name: "Brian", email: "brianwong06@gmail.com", password: 123456789, phone_number: "9163976614", password_confirmation: 123456789, superadmin: false)
+User.create!(name: "Franco", email: "not_admin@email.com", phone_number: "4127219550", password: 123456789, password_confirmation: 123456789, superadmin: false)
+User.create!(name: "Franco", email: "fnc314@gmail.com", phone_number: "4127219550", password: 123456789, password_confirmation: 123456789, superadmin: true)
+User.create!(name: "Jack", email: "not_admin2@email.com", phone_number: "8585279771", password: 123456789, password_confirmation: 123456789, superadmin: false)
+User.create!(name: "Jackson", email: "jacksonsandland@gmail.com", phone_number: "8585279771", password: 123456789, password_confirmation: 123456789, superadmin: true)
 
 Restaurant.create(name: "Alexander's", num_of_tables: 30)
 
