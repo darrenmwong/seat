@@ -11,17 +11,15 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    @user = current_user
-    if @user.nil?
+    if current_user.nil?
       flash[:error] = "Must be signed in to make reservation"
       redirect_to sign_in_path
     else
-      @reservation = Reservation.new
+      @reservation = current_user.reservations.new
     end
   end
 
   def create
-    @user = current_user
     new_party = params.require(:reservation).permit(:party_size)
   
     # Extract date entries from params
@@ -32,7 +30,7 @@ class ReservationsController < ApplicationController
     
     new_params = { party_size: new_party[:party_size], begin: new_date[:begin] }
     
-    new_res = @user.reservations.create(new_params)
+    new_res = current_user.reservations.create(new_params)
 
     # Use method from ReservatoinsHelper to determine
     # the end of a reservation.  Set that value to new instance of Reservation
@@ -41,14 +39,13 @@ class ReservationsController < ApplicationController
     reservation_confirmation_email_send(@user)
 
     respond_to do |f|
-      f.html { redirect_to user_reservation_path(@user.id, new_res.id) }
+      f.html { redirect_to user_reservation_path(current_user.id, new_res.id) }
     end
 
   end
 
   def show
-    @user = current_user
-    @reservation = @user.reservations.find(params[:id])
+    @reservation = current_user.reservations.find(params[:id])
   end
 
   def edit
@@ -56,12 +53,13 @@ class ReservationsController < ApplicationController
   end
 
   def update
+    # if-statment method moved to admin/reservations.rb
+    # because current_user.superadmin uses that controller
     if current_user.superadmin?
       reservation = Reservation.find(params[:id])
       updated_info = params.require(:reservation).permit(:party_size, :begin, :end, :server_id, :table_ids, :restaurant_id)
       updated_info[:table_ids].each { |tid| reservation.tables << tid if tid != "" }
       reservation.update_attributes(updated_info)
-      binding.pry
       redirect_to admin_reservation_path(reservation.id)
     else
       @reservation = current_user.reservations.find(params[:id])
@@ -72,8 +70,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:user_id])
-    reservation = user.reservations.find(params[:id])
+    reservation = current_user.reservations.find(params[:id])
     reservation.destroy
     redirect_to user_path(current_user.id)
   end
