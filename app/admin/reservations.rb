@@ -1,5 +1,13 @@
 ActiveAdmin.register Reservation do
 
+  form do |f|
+  f.inputs "Label" do
+    f.input :party_size
+    f.input :restaurant_id
+    # etc
+  end
+end  
+
    index do
     column "Scheduled Date", :begin, format: :default
     column "Party Size", :party_size
