@@ -11,17 +11,15 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    @user = current_user
-    if @user.nil?
+    if current_user.nil?
       flash[:error] = "Must be signed in to make reservation"
       redirect_to sign_in_path
     else
-      @reservation = Reservation.new
+      @reservation = current_user.reservations.new
     end
   end
 
   def create
-    @user = current_user
     new_party = params.require(:reservation).permit(:party_size)
   
     # Extract date entries from params
@@ -32,7 +30,7 @@ class ReservationsController < ApplicationController
     
     new_params = { party_size: new_party[:party_size], begin: new_date[:begin] }
     
-    new_res = @user.reservations.create(new_params)
+    new_res = current_user.reservations.create(new_params)
 
     # Use method from ReservatoinsHelper to determine
     # the end of a reservation.  Set that value to new instance of Reservation
@@ -41,14 +39,13 @@ class ReservationsController < ApplicationController
     reservation_confirmation_email_send(@user)
 
     respond_to do |f|
-      f.html { redirect_to user_reservation_path(@user.id, new_res.id) }
+      f.html { redirect_to user_reservation_path(current_user.id, new_res.id) }
     end
 
   end
 
   def show
-    @user = current_user
-    @reservation = @user.reservations.find(params[:id])
+    @reservation = current_user.reservations.find(params[:id])
   end
 
   def edit
