@@ -3,6 +3,13 @@
 }
 
 
+
+.tag_line {
+  font-family: homestead;
+  font-size: 100px;
+}
+
+
 .imgSize {
   max-width: 100px;
   max-length: auto;
@@ -104,3 +111,5 @@
     ...
     z-index: 200;
 }
+
+

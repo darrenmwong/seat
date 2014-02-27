@@ -1,13 +1,14 @@
 
-article h2 { font-family: 'Lobster Two'; font-size: 60px; margin: 25px 0; line-height: 1em; }
+article h2 { background: url('http://i.imgur.com/9U1O6J3.png'), font-family: 'Lobster Two'; font-size: 60px; margin: 25px 0; line-height: 1em; }
 
-.story { height: 1000px; padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.3); border-bottom: 1px solid rgba(0,0,0,0.4); box-shadow: 0 0 50px rgba(0,0,0,0.8);}
+
+#logo {
+  background: url('');
+}
 
 #first { 
-  /*bar scene*/
-  background: url('http://i.imgur.com/BiJv2I0.jpg') 50% 0 no-repeat fixed;
-  background: url('http://i.imgur.com/BiJv2I0.jpg') 50% 0 no-repeat fixed;
-  
+  /*cloud*/
+  background: url('http://i.imgur.com/DLQA4mN.gif') 50% 0 no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -15,23 +16,28 @@ article h2 { font-family: 'Lobster Two'; font-size: 60px; margin: 25px 0; line-h
 }  
 
 #second { 
-  background: url('http://i.imgur.com/T2TUsVi.jpg') 50% 0 no-repeat fixed;
+  background: url('') 50% 0 no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-/*lit yellow bottles*/
-#fourth { background: url('http://i.imgur.com/ae9bP7g.jpg') 50% 0 no-repeat fixed; }
+
 #third { 
-  background: url('http://i.imgur.com/OFi063o.jpg') 50% 0 no-repeat fixed; 
+  background: url('') 50% 0 no-repeat fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-#theend { background: url('http://i.imgur.com/M8OUbPa.jpg') 50% bottom no-repeat fixed;
+
+#fourth { 
+  background: url('') 50% 0 no-repeat fixed; 
+}
+
+}
+#theend { background: url('') 50% bottom no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -39,26 +45,35 @@ article h2 { font-family: 'Lobster Two'; font-size: 60px; margin: 25px 0; line-h
  }
 
 /* Introduction */
-#first .smashinglogo { background: url('') 50% 100px no-repeat fixed; min-height: 1000px; padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; }
+#first .smashinglogo { background: url('http://i.imgur.com/9U1O6J3.png') 50% 100px no-repeat fixed; 
+min-height: 800px; 
+padding: 0; 
+margin: 0; 
+width: 100%; 
+max-width: 1920px; 
+position: relative; 
+margin: 0 auto; 
+}
+
 #first article { width: 100%; top: 300px; position: absolute; text-align: center; }
 #first article p,
-#first article a { color: #ccc; }
+#first article a { color: transparent; }
 #first article a { text-decoration: underline; }
 #first article a:hover { color: #fff; }
 
 /* Background Only */
 #second { padding: 50px 0;}
-#second article { background: url('http://i.imgur.com/OFi063o.jpg') repeat #333; color: #fff; width: 445px; margin-left: 100px; padding: 10px 20px; text-shadow: 0 -1px 0 rgba(0,0,0,0.5); line-height: 1.5em; box-shadow: 0 0 25px rgba(0,0,0,0.3); border: 1px solid rgba(150,150,150,0.1); }
+#second article { background: url('') repeat #333; color: transparent; width: 445px; margin-left: 100px; padding: 10px 20px; text-shadow: 0 -1px 0 rgba(0,0,0,0.5); line-height: 1.5em; box-shadow: 0 0 25px rgba(0,0,0,0.3); border: 1px solid rgba(150,150,150,0.1); }
 #second article p { margin-bottom: 25px; }
-#second article a { color: #ff0;}
+#second article a { color: transparent;}
 
 /*http://i.imgur.com/yza7DE8.jpg*/
 
 /* Photograph */
-#third article {  background: url('http://i.imgur.com/OFi063o.jpg') repeat #333; color: #fff; padding: 10px 20px; margin: 100px 0 0 60%; text-shadow: 0 -1px 0 rgba(0,0,0,0.5); line-height: 1.5em; color: #fff; position: absolute; top: 0; box-shadow: 0 0 25px rgba(0,0,0,0.3); border: 1px solid rgba(150,150,150,0.1); }
+#third article {  background: url('') repeat #333; color: transparent; padding: 10px 20px; margin: 100px 0 0 60%; text-shadow: 0 -1px 0 rgba(0,0,0,0.5); line-height: 1.5em; color: #fff; position: absolute; top: 0; box-shadow: 0 0 25px rgba(0,0,0,0.3); border: 1px solid rgba(150,150,150,0.1); }
 /*neon diner*/
 #third .photograph { 
-  background: url('http://i.imgur.com/58IaLH4.png') transparent 40% 100px no-repeat fixed; 
+  background: url('') transparent 40% 100px no-repeat fixed; 
   min-height: 1000px; 
   padding: 0; 
   margin: 0; 
@@ -66,6 +81,8 @@ article h2 { font-family: 'Lobster Two'; font-size: 60px; margin: 25px 0; line-h
   max-width: 1920px; 
   position: relative; 
   margin: 0 auto; 
+  width: 50%;
+  height: 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -74,11 +91,12 @@ article h2 { font-family: 'Lobster Two'; font-size: 60px; margin: 25px 0; line-h
 #third article p { width: 300px; margin-bottom: 25px; }
 
 /* HTML5 Video */
-#fourth article {  margin-left: 10%; text-shadow: 0 -1px 0 rgba(0,0,0,0.5); line-height: 1.5em; color: #fff; position: absolute; top: 0; }
+#fourth article {  margin-left: 10%; text-shadow: 0 -1px 0 rgba(0,0,0,0.5); line-height: 1.5em; color: transparent; position: absolute; top: 0; }
 #fourth article p { width: 300px; margin: 50px 0; }
 #fourth video { position: fixed; left: 50%; box-shadow: 0 0 25px rgba(0,0,0,0.7); z-index: 1;}
 
 /* The End */
-#theend .byebye { background: url('http://i.imgur.com/asoBFXk.jpg') 40% 100px no-repeat fixed; height: 1000px; padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; }
+#theend .byebye { background: url('') 40% 100px no-repeat fixed; height: 1000px; padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; }
+
 
 

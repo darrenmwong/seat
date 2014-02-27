@@ -12,7 +12,7 @@
     <%= csrf_meta_tags %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
    
-     <link href='http://fonts.googleapis.com/css?family=Lobster+Two:700&v2' rel='stylesheet' type='text/css'>
+
   </head>
    <header>
       <%= render 'layouts/navigation' %>
@@ -20,45 +20,51 @@
   <body>
 
   <div id="main" role="main">
+  <div class="col-md-12 text-center">
+      <h1 class="animated animationDelayLong bounceInLeft">Seat</h1>
+     
 
   <!-- Section #1 / Intro -->
-  <section id="first" class="story" data-speed="8" data-type="background">      
-    <div class="smashinglogo" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2"></div>   
-    <article>
+  <section id="first" data-speed="8" data-type="background">      
+    <div class="smashinglogo" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2"></div> 
 
-      <img href=url('http://i.imgur.com/z61PWXI.jpg') alt="tutorial-title" width="711" height="242" />
+    <h1 class="tag_line">Take a seat with us</h1>
+    </div>
+    <!-- <article>
+    
+      <img src=url('http://i.imgur.com/9U1O6J3.png') alt="tutorial-title" width="711" height="242" />
       
-      </article>
+      </article> -->
   </section>
 
   <!-- Section #2 / Background Only -->
-  <section id="second" class="story" data-speed="4" data-type="background">
-    <article>
+  <section id="second" data-speed="4" data-type="background">
+    <article
       <h2>Let's find</h2>
           <p>In this section we are sliding the background at a different speed to the rest of the page.</p>
           <p>As this text box is scrolling at the same speed as the page, and faster than the background, it creates this lovely parallax effect.</p>
          
-          <p>Backgrounds for this article were taken from the May/June 2011 Smashing Magazine Desktop backgrounds.</p>  
-          <p>Head back to <a href="http://coding.smashingmagazine.com/2011/07/12/behind-the-scenes-of-nike-better-world/">Smashing Magazine</a>, or hop on over to <a href="http://richardshepherd.com">RichardShepherd.com</a>.</p>    
+           
+          
     </article>
   </section>
   
   <!-- Section #3 / Photos -->
-  <section id="third" class="story" data-speed="6" data-type="background" data-offsetY="250">     
+  <section id="third" data-speed="6" data-type="background" data-offsetY="250">     
     <div class="photograph" data-type="sprite" data-offsetY="1250" data-Xposition="25%" data-speed="2" style="background-position: 25% -150.5px;"></div>
-      <article>
-        <h2>Scrolling Sprites</h2>
+     <!--  <article>
+        <h2>Eat with Seat</h2>
         <div class="textbox">     
           <p>The next step in your parallax scrolling adventure is to create some sprites!</p>
           <p>I have cut out one of the photos in this background and use it as a sprite. It scrolls at a different speed to the background <i>and</i> the window, and it's this effect that's used so well on Nike Better World and other parallax sites..</p>
           <p>Using too many sprites can slow down older computers, and you need to use some clever maths (and trial & error!) to work out their placement on the page.</p>
         </div>
-      </article>
+      </article> -->
   </section>  
   
 
   <!-- Section #4 / HTML5 Video -->
-  <section id="fourth" class="story" data-speed="8" data-type="background" data-offsetY="250">
+  <section id="fourth" data-speed="8" data-type="background" data-offsetY="250">
       <article>
        <h1>text goes here</h1>
       </article>
@@ -70,7 +76,7 @@
   </section>  
 
   <!-- Section #5 / The End-->
-  <section id="theend" class="story" data-speed="8" data-type="background" data-offsetY="250">      
+  <section id="theend" data-speed="8" data-type="background" data-offsetY="250">      
     <div class="byebye" data-type="sprite" data-offsetY="-1600" data-Xposition="50%" data-speed="-2"></div> 
   </section>
   
