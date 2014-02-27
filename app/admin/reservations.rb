@@ -2,9 +2,10 @@ ActiveAdmin.register Reservation do
 
 
    index do
-    column "Scheduled Date", :begin, format: :default
+    column(:when) { |res| l(res.begin.to_date, format: :default) }
+    column(:time) { |res| (res.begin.to_time + 8.hours).strftime("%l:%M %p") }
     column "Party Size", :party_size
-    column(:server_id) { |x| Server.find(x.server_id).name }
+    column(:server_id) { |res| Server.find(res.server_id).name }
     default_actions
    
   end
