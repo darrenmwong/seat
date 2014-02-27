@@ -20,10 +20,6 @@ gem 'rails_config'
 gem 'twilio-ruby'
 gem 'omniauth-facebook', '1.4.0'
 gem 'activeadmin', github: 'gregbell/active_admin'
-group :development do
-  gem "better_errors"
-end
-gem "binding_of_caller"
 
 group :production do
   gem 'rails_12factor'
@@ -41,6 +37,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'dotenv-rails'
+  gem "better_errors"
 end
 group :test do
   gem 'database_cleaner', '1.0.1'
