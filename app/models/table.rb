@@ -6,6 +6,7 @@ class Table < ActiveRecord::Base
   # method that is called automatically when an instance of
   # Table is called 
   def to_s
-    "table: #{self.id}"
+    "Table: #{self.id}, Capacity: #{self.capacity}"
   end
+  
 end
