@@ -28,7 +28,7 @@ ActiveAdmin.register Reservation do
 
   controller do
     def permitted_params
-      params.permit reservation: [ :begin, :end, :party_size, :server_id, :tables, :table_ids, :image_file_size ]
+      params.permit reservation: [ :begin, :end, :party_size, :server_id, :table_ids, :image_file_size ]
     end
   end
 
