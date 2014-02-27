@@ -3,10 +3,7 @@
   max-length: auto;
 }
 
-.navBarChange {
-  a:link {color: black;}
   
-}
 
 .btn-custom-edit {
   background-color: hsl(145, 62%, 68%) !important;
@@ -45,8 +42,4 @@
 }
 
 
-.a {
-  a:link {text-decoration:none;}
-  a:visited color: black;
-  a:hover color: black;
-}
+
