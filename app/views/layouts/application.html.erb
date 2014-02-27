@@ -15,14 +15,16 @@
       <%= render 'layouts/navigation' %>
     </header>
   <body>
-    <%= render 'layouts/messages' %>
+
 
   <div id="main" role="main">
 
   <div class="col-md-12 text-center">
 
   <!-- Section #1 / Intro -->
-  <section id="first" data-speed="8" data-type="background">  
+  <section id="first" data-speed="8" data-type="background"> 
+      <%= render 'layouts/messages' %>
+
    <%= yield %>       
     <div class="smashinglogo" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2"></div> 
 
