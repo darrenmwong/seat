@@ -4,25 +4,26 @@
     <link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="/assets/images/favicon.ico" />
     <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
     <link rel="icon" href="/assets/images/favicon.ico" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Seat" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Seat" %>">
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-   
-
   </head>
    <header>
       <%= render 'layouts/navigation' %>
     </header>
   <body>
+    <%= render 'layouts/messages' %>
 
   <div id="main" role="main">
+
   <div class="col-md-12 text-center">
+
       <h1 class="animated animationDelayLong bounceInLeft">Seat</h1>
      
+      <%= yield %>   
 
   <!-- Section #1 / Intro -->
   <section id="first" data-speed="8" data-type="background">      
@@ -68,11 +69,7 @@
       <article>
        <h1>text goes here</h1>
       </article>
-    <video controls width="640" width="480" data-type="video" data-offsetY="2400" data-speed="1.5">
-      <source src="video/parallelparking.theora.ogv" type="video/ogg" />
-      <source src="video/parallelparking.mp4" type="video/mp4" />
-      <source src="video/parallelparking.webm" type="video/webm" />
-    </video>
+
   </section>  
 
   <!-- Section #5 / The End-->
@@ -95,8 +92,7 @@
   <![endif]-->
    
     <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
+  
      
      
       </ul>

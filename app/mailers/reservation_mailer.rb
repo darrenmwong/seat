@@ -3,8 +3,7 @@ class ReservationMailer < ActionMailer::Base
 
 
   def reservation_confirmation(user)
-    @user = user
-    mail(to: @user.email, subject: 'Thanks for booking with Seat')
+    mail(to: user.email, subject: 'Thanks for booking with Seat')
   end
 
 end

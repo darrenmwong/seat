@@ -36,7 +36,7 @@ class ReservationsController < ApplicationController
     # the end of a reservation.  Set that value to new instance of Reservation
     time_end = end_time_calculator(new_res[:begin])
     new_res.update_attributes(end: time_end)
-    reservation_confirmation_email_send(@user)
+    reservation_confirmation_email_send(current_user)
 
     respond_to do |f|
       f.html { redirect_to user_reservation_path(current_user.id, new_res.id) }
