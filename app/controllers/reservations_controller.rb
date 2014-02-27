@@ -61,12 +61,13 @@ class ReservationsController < ApplicationController
       updated_info = params.require(:reservation).permit(:party_size, :begin, :end, :server_id, :table_ids, :restaurant_id)
       updated_info[:table_ids].each { |tid| reservation.tables << tid if tid != "" }
       reservation.update_attributes(updated_info)
+      binding.pry
       redirect_to admin_reservation_path(reservation.id)
     else
-      reservation = current_user.reservations.find(params[:id])
+      @reservation = current_user.reservations.find(params[:id])
       updated_info = params.require(:reservation).permit(:party_size, :begin)
-      reservation.update_attributes(updated_info)
-      redirect_to users_reservation_path(reservation.id)
+      @reservation.update_attributes(updated_info)
+      redirect_to user_reservation_path(current_user.id, @reservation.id)
     end
   end
 
