@@ -3,19 +3,18 @@
 }
 
 .navbar-default {
-    background-color: grey;
+    background-color: #1abc9c;
     opacity: .9;
     border: 20px;
     border-bottom-color: black;
 }
 
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-    color: #FF0000;
+.navbar-default .navbar-brand:hover {
+    color: blue;
   }
 
 .navbar-default .navbar-nav > li > a {
-    color:  #FF0000;
+    color:  #ecf0f1;
     text-decoration: none;
   }
 
