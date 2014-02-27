@@ -27,22 +27,23 @@ User.create!(name: "Jackson", email: "jacksonsandland@gmail.com", phone_number: 
 Restaurant.create(name: "Alexander's", num_of_tables: 30)
 
 (1..10).each do
-  Table.create(capacity: 2, restaurant_id: 1)
+  Table.create(capacity: 2)
 end
 
 (1..20).each do
-  Table.create(capacity: 4, restaurant_id: 1)
+  Table.create(capacity: 4)
 end
 
-Server.create(name: "Joan", restaurant_id: 1)
-Server.create(name: "Jim", restaurant_id: 1)
-Server.create(name: "Darren", restaurant_id: 1)
-Server.create(name: "Franco", restaurant_id: 1)
-Server.create(name: "Jackson", restaurant_id: 1)
-Server.create(name: "Stephanie", restaurant_id: 1)
-Server.create(name: "Nina", restaurant_id: 1)
-Server.create(name: "Simone", restaurant_id: 1)
-Server.create(name: "Robert", restaurant_id: 1)
-Server.create(name: "Tripta", restaurant_id: 1)
+Server.create(name: "Joan")
+Server.create(name: "Jim")
+Server.create(name: "Darren")
+Server.create(name: "Franco")
+Server.create(name: "Jackson")
+Server.create(name: "Stephanie")
+Server.create(name: "Nina")
+Server.create(name: "Simone")
+Server.create(name: "Robert")
+Server.create(name: "Tripta")
+Server.create(name: "- -")
 
 
