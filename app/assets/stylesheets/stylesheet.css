@@ -1,12 +1,14 @@
+.body{
+  background-color: transparent;
+}
+
+
 .imgSize {
   max-width: 100px;
   max-length: auto;
 }
 
-.navBarChange {
-  a:link {color: black;}
   
-}
 
 .btn-custom-edit {
   background-color: hsl(145, 62%, 68%) !important;
@@ -45,8 +47,60 @@
 }
 
 
-.a {
-  a:link {text-decoration:none;}
-  a:visited color: black;
-  a:hover color: black;
+#intro{
+    background:url('http://i.imgur.com/YykQECt.jpg') 50% 0 no-repeat fixed;
+    color: white;
+    height: 600px;
+    margin: 0;
+    padding: 160px 0 0 0;
+    margin-bottom: 200px;
+     no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#image2 .bg2{
+    background:url('http://i.imgur.com/eYKiDOb.jpg') 50% 0 no-repeat fixed;
+    color: black;
+    height: 600px;
+    margin: 0;
+    padding: 160px 0 0 0;
+    margin-left: -111px;
+    margin-right: -111px;
+     no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#image3 .bg3{
+    background:url('http://i.imgur.com/58IaLH4.png') 50% 0 no-repeat fixed;
+    color: white;
+    height: 600px;
+    margin: 0;
+    padding: 160px 0 0 0;
+     no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+.story{
+    margin: 0 auto;
+    min-width: 980px;
+    width: 980px;
+}
+
+
+#image4 .bg4{
+   background: url('http://i.imgur.com/dG9HoXp.jpg') 50% 0 no-repeat fixed;
+    ...
+    position: absolute;
+    ...
+    z-index: 200;
 }
