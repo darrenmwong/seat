@@ -16,4 +16,4 @@ class HomeController < ApplicationController
        redirect_to new_reservation_path
      end
     end
-end
+  end

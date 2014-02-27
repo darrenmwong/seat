@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  validates :name, presence: true
+  validates :phone_number, presence: true
   
 
   has_many :reservations
