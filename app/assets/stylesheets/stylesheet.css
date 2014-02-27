@@ -2,6 +2,23 @@
   background-color: transparent;
 }
 
+.navbar-default {
+    background-color: grey;
+    opacity: .9;
+    border: 20px;
+    border-bottom-color: black;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #FF0000;
+  }
+
+.navbar-default .navbar-nav > li > a {
+    color:  #FF0000;
+    text-decoration: none;
+  }
+
 .resForm {
   text-align: center;
   opacity: 50%;
