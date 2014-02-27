@@ -4,7 +4,7 @@ ActiveAdmin.register Reservation do
     f.inputs "Label" do
       f.input :party_size
       f.input :begin
-      f.input :tables
+      f.input :table_ids
       f.input :server
 
       # etc
