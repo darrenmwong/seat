@@ -20,12 +20,12 @@ ActiveAdmin.register Reservation do
   filter :tables
 
   index do
-
+    sting = ""
     column(:date) { |res| l(res.begin.to_date, format: :default) }
     column(:when) { |res| (res.begin.to_time + 8.hours).strftime("%l:%M %p") }
     column "Party Size", :party_size
     column(:server_id) { |res| Server.find(res.server_id).name }
-    column(:tables) { |res| "Make the Table.instance.to_s appear here" }
+    column(:tables) { |res| (res.tables.map { |t| t.to_s }) }
     #binding.pry
     default_actions 
   
@@ -44,9 +44,10 @@ ActiveAdmin.register Reservation do
       res = Reservation.find(params[:id])
       #
       tables = params[:reservation][:table_ids]
-      binding.pry
-      tables.scan(/\w+/).each { |t| res.tables << Table.find(t) }
+      tables = tables.scan(/\w+/).map { |t| Table.find(t) }
       
+      # tables.scan(/\w+/).each { |t| res.tables << Table.find(t) }
+      res.tables = tables
       redirect_to admin_reservation_path(res.id)
     end
 

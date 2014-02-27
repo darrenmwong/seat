@@ -53,6 +53,8 @@ class ReservationsController < ApplicationController
   end
 
   def update
+    # if-statment method moved to admin/reservations.rb
+    # because current_user.superadmin uses that controller
     if current_user.superadmin?
       reservation = Reservation.find(params[:id])
       updated_info = params.require(:reservation).permit(:party_size, :begin, :end, :server_id, :table_ids, :restaurant_id)
