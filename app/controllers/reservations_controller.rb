@@ -76,7 +76,7 @@ class ReservationsController < ApplicationController
     reservation = user.reservations.find(params[:id])
     reservation.destroy
     redirect_to user_path(current_user.id)
-    end
+  end
   
 
 end
