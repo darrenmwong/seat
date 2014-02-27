@@ -61,7 +61,6 @@ class ReservationsController < ApplicationController
       updated_info = params.require(:reservation).permit(:party_size, :begin, :end, :server_id, :table_ids, :restaurant_id)
       updated_info[:table_ids].each { |tid| reservation.tables << tid if tid != "" }
       reservation.update_attributes(updated_info)
-      binding.pry
       redirect_to admin_reservation_path(reservation.id)
     else
       @reservation = current_user.reservations.find(params[:id])
@@ -72,8 +71,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:user_id])
-    reservation = user.reservations.find(params[:id])
+    reservation = current_user.reservations.find(params[:id])
     reservation.destroy
     redirect_to user_path(current_user.id)
   end
