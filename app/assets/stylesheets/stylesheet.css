@@ -3,10 +3,11 @@
 }
 
 .navbar-default {
-    background-color: #1abc9c;
+    background-color: transparent;
     opacity: .9;
     border: 20px;
     border-bottom-color: black;
+    top: 12px;
 }
 
 .navbar-default .navbar-brand:hover {
