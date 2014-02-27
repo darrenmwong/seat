@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20140226203024) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "restaurant_id", default: 1
-    t.integer  "server_id"
+    t.integer  "server_id",     default: 11
   end
 
   add_index "reservations", ["restaurant_id"], name: "index_reservations_on_restaurant_id", using: :btree
@@ -119,7 +119,6 @@ ActiveRecord::Schema.define(version: 20140226203024) do
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
     t.string   "phone_number"
-    t.boolean  "admin",                  default: false
     t.string   "provider"
     t.string   "uid"
     t.string   "image"
