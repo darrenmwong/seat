@@ -44,6 +44,5 @@ Server.create(name: "Nina")
 Server.create(name: "Simone")
 Server.create(name: "Robert")
 Server.create(name: "Tripta")
-Server.create(name: "- -")
 
 
