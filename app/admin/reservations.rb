@@ -18,7 +18,7 @@ ActiveAdmin.register Reservation do
 
   # Index Page (admin/reservations)
   index do
-    column(:customer) { |res| res.user.name }
+    column(:customer) { |res| User.find(res.user_id).name }
     column(:date) { |res| res.begin.to_date.strftime("%A %b. %d, %Y") }
     column(:time) { |res| (res.begin.to_time + 8.hours).strftime("%l:%M %p") }
     column :party_size
