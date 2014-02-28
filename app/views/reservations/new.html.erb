@@ -1,6 +1,6 @@
 <div class="authform">
   <div class="resForm"><br><br>
-<%= form_for :reservation, :url => user_reservations_path, :method => :post  do |f| %>
+<%= form_for :reservation, :url => user_reservations_path, :class => "fadeIn", :method => :post  do |f| %>
   
   <%= f.label "When?" %> <br>
   <%= f.date_select :begin
