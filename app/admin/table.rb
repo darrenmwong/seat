@@ -1,18 +1,29 @@
 ActiveAdmin.register Table do
   config.sort_order = "id_asc"
   
+  # filter :section
+  filter :capacity
+
   index do
+    column :label => "Section" do |table|
+      if table.id % 3 == 1
+        "Section #{table.id % 3}"
+      elsif table.id % 3 == 2
+        "Section #{table.id % 3}"
+      else
+        "Section #{(table.id % 3) + 3}"
+      end
+    end
     column "Table Number", :id
     column "Capacity", :capacity
-    # column "Server", :server_id #do |id| Server.find(id).name end
-    # filter :server_id, as: :check_boxes, collection: proc { Server.all }
     default_actions
-   
   end
 
-  show do
-    row "Restaurant", :restaurant
-    row "Seats", :capacity
+  show do |table|
+    attributes_table do
+      row "Restaurant", :restaurant
+      row "Seats", :capacity
+    end
   end
 
   controller do

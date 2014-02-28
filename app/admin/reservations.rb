@@ -81,6 +81,20 @@ ActiveAdmin.register Reservation do
       params.permit reservation: [ :begin, :end, :party_size, :server_id, :table_ids, :image_file_size ]
     end
 
+    def create
+      permitted_params
+      # Ability for Admin to create reservations (overlooked)
+      res = current_user.reservations.new
+      res.begin = DateTime.new(params[:reservation]["begin(1i)"].to_i, params[:reservation]["begin(2i)"].to_i, params[:reservation]["begin(3i)"].to_i, params[:reservation]["begin(4i)"].to_i, params[:reservation]["begin(5i)"].to_i)
+      res.end = res.begin + 90.minutes
+      res.server_id = params[:reservation][:server_id]
+      params[:reservation][:table_ids].each do |t|
+        res.tables << Table.find(t.to_i) if t != ""
+      end
+      res.save!
+      redirect_to admin_reservation_path(res.id)
+    end
+
     def update
       permitted_params
       
