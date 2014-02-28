@@ -5,7 +5,7 @@
 <% else %>
 
   <li><%= link_to 'Login', new_user_session_path, :class => "sliding-u-l-r" %></li>
-  <li>    <%= link_to 'Facebook Login', user_omniauth_authorize_path(:facebook) %> </li>
+  <li> <%= link_to 'Facebook Login', user_omniauth_authorize_path(:facebook), :class => "sliding-u-l-r"  %> </li>
 <% end %>
 
 
