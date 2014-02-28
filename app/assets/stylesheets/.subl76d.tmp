@@ -1,6 +1,4 @@
 
-article h2 { font-family: 'Lobster Two'; font-size: 60px; margin: 25px 0; line-height: 1em; }
-
 
 #first { 
   /*bar scene*/
