@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   validates :name, presence: true
-  validates :phone_number, presence: true
+  # validates :phone_number, presence: true
   
 
   has_many :reservations
