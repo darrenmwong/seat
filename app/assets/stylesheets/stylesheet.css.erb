@@ -1,9 +1,38 @@
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.top {
+  margin-top: 75px;
+}
+
+.showPage {
+  background-color: grey;
+  opacity: .8;
+  text-align: right;
+  padding-right: 10px;
+  overflow: hidden;
+  z-index: -1;
+
+}
+.showfont {
+  color: black;
+  z-index: 2;
+}
+
 .body{
   background-color: transparent;
+
 }
 
 .navbar-default {
-    background-color: transparent;
+    background: transparent url('<%= asset_path "heart183.png" %>') no-repeat center;
+    opacity: .9;
     border: 20px;
     border-bottom-color: black;
     border-bottom: 1px solid white;
@@ -12,14 +41,22 @@
 }
 
 .navbar-default .navbar-brand:hover {
-    color: blue;
+    text-decoration: underline;
   }
 
-.navbar-default .navbar-nav > li > a {
+
+ .navbar-default .navbar-nav > li > a {
     color:  #ecf0f1;
     text-decoration: none;
   }
 
+  .collapse .navbar-collapse .navbar-default .navbar-nav {
+    text-align: right;
+    float: right;
+  }
+
+
+}
 .resForm {
   text-align: center;
   opacity: 50%;
@@ -32,8 +69,10 @@
 }
 
 .tag_line {
-  font-family: homestead;
-  font-size: 100px;
+  font-family: 'Arvo', serif;
+  font-size: 90px;
+  z-index: -1;
+  margin-right: 20px;
 }
 
 
@@ -175,8 +214,82 @@ text-decoration: none;
     float:none;
 }
 
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
-border-color: #e7e7e7;
-margin-right: 22px;
+.float-left {
+float:left;
+width:33%;
+}
+
+.three-callouts {
+  margin: 30px 0 30px;
+  float: left;
+}
+
+.three-callouts h2 {
+  text-transform: uppercase;
+  font-size: 35px;
+  font-weight: 300;
+  line-height: 40px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.three-callouts p {
+  text-align: left;
+  line-height: 1.4;
+  margin-bottom: 5px;
+  color: #666;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.three-callouts a {
+  text-transform: uppercase;
+  text-align: left;
+  line-height: 1.4;
+  margin: 5px 0;
+  color: #2996cc;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none;
+  padding-right: 10px;
+  width: 100%;
+  float: left;
+}
+
+.three-callouts a:hover {
+  color: #2e3b4e;
+}
+
+.three-callouts a:after {
+  content: "\f054";
+  font-family: "FontAwesome";
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+body {
+  background: #4aabb1;
+}
+
+hr {
+  float: left;
+  width: 100%;
+  height: 1px;
+  color: #999;
+  margin: 50px 0;
+}
+
+.heart_fork_button a {
+  position: absolute;
+  top:0;
+  width: 50px;
+  height: 50px;
+  /*background-color: red;*/
+  left: 50%;
+  margin-left: -25px;
+}
+
+
 
 
