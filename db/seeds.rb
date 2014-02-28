@@ -17,12 +17,13 @@
 # user.confirm!
 # user.add_role :admin
 
-User.create!(name: "Darren", email: "darrenwong06@gmail.com", password: 123456789, phone_number: "9163976614", password_confirmation: 123456789, superadmin: true)
-User.create!(name: "Brian", email: "brianwong06@gmail.com", password: 123456789, phone_number: "9163976614", password_confirmation: 123456789, superadmin: false)
-User.create!(name: "Franco", email: "not_admin@email.com", phone_number: "4127219550", password: 123456789, password_confirmation: 123456789, superadmin: false)
-User.create!(name: "Franco", email: "fnc314@gmail.com", phone_number: "4127219550", password: 123456789, password_confirmation: 123456789, superadmin: true)
-User.create!(name: "Jack", email: "not_admin2@email.com", phone_number: "8585279771", password: 123456789, password_confirmation: 123456789, superadmin: false)
-User.create!(name: "Jackson", email: "jacksonsandland@gmail.com", phone_number: "8585279771", password: 123456789, password_confirmation: 123456789, superadmin: true)
+User.create(name: "Darren", email: "darrenwong06@gmail.com", password: 123456789, phone_number: "9163976614", password_confirmation: 123456789, superadmin: true)
+User.create(name: "Franco", email: "fnc314@gmail.com", phone_number: "4127219550", password: 123456789, password_confirmation: 123456789, superadmin: true)
+User.create(name: "Jackson", email: "jacksonsandland@gmail.com", phone_number: "8585279771", password: 123456789, password_confirmation: 123456789, superadmin: true)
+User.create(name: "Brian", email: "brianwong06@gmail.com", password: 123456789, phone_number: "9163976614", password_confirmation: 123456789, superadmin: false)
+User.create(name: "Franco", email: "not_admin@email.com", phone_number: "4127219550", password: 123456789, password_confirmation: 123456789, superadmin: false)
+User.create(name: "Jack", email: "not_admin2@email.com", phone_number: "8585279771", password: 123456789, password_confirmation: 123456789, superadmin: false)
+
 
 Restaurant.create(name: "Alexander's", num_of_tables: 30)
 
@@ -45,4 +46,27 @@ Server.create(name: "Simone")
 Server.create(name: "Robert")
 Server.create(name: "Tripta")
 
-
+(1..30).each do |x|
+  hour = [18, 19, 20, 21].sample
+  minutes = [00, 30].sample
+  res = Reservation.new
+  if x % 3 == 1
+    res.party_size = (x ** 2) % 24
+    res.user_id = x % 3
+    res.begin = DateTime.new(2014, (x % 12) + 1, x, hour, minutes)
+    res.end = res.begin + 90.minutes
+    res.save
+  elsif x % 3 == 2
+    res.party_size = (x ** 2) % 24
+    res.user_id = x % 3
+    res.begin = DateTime.new(2014, (x % 12) + 1, x, hour, minutes)
+    res.end = res.begin + 90.minutes
+    res.save
+  else
+    res.party_size = (x ** 2) % 24
+    res.user_id = (x % 3) + 3
+    res.begin = DateTime.new(2014, (x % 12) + 1, x, hour, minutes)
+    res.end = res.begin + 90.minutes
+    res.save
+  end
+end
