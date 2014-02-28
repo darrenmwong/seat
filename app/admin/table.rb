@@ -1,19 +1,11 @@
 ActiveAdmin.register Table do
-  config.sort_order = "id_asc"
+  config.sort_order = "section_id_asc"
   
-  # filter :section
+  filter :section_id, :as => :check_boxes, :collection => proc { (1..5).to_a }
   filter :capacity
 
   index do
-    column :label => "Section" do |table|
-      if table.id % 3 == 1
-        "Section #{table.id % 3}"
-      elsif table.id % 3 == 2
-        "Section #{table.id % 3}"
-      else
-        "Section #{(table.id % 3) + 3}"
-      end
-    end
+    column "Section", :section_id
     column "Table Number", :id
     column "Capacity", :capacity
     default_actions

@@ -17,9 +17,9 @@
 # user.confirm!
 # user.add_role :admin
 
-User.create(name: "Darren", email: "darrenwong06@gmail.com", password: 123456789, phone_number: "9163976614", password_confirmation: 123456789, superadmin: true)
-User.create(name: "Franco", email: "fnc314@gmail.com", phone_number: "4127219550", password: 123456789, password_confirmation: 123456789, superadmin: true)
-User.create(name: "Jackson", email: "jacksonsandland@gmail.com", phone_number: "8585279771", password: 123456789, password_confirmation: 123456789, superadmin: true)
+User.create(name: "Darren", email: "darrenwong06@gmail.com", password: 1234567890, phone_number: "9163976614", password_confirmation: 1234567890, superadmin: true)
+User.create(name: "Franco", email: "fnc314@gmail.com", phone_number: "4127219550", password: 1234567890, password_confirmation: 1234567890, superadmin: true)
+User.create(name: "Jackson", email: "jacksonsandland@gmail.com", phone_number: "8585279771", password: 1234567890, password_confirmation: 1234567890, superadmin: true)
 User.create(name: "Brian", email: "darrenwong06@gmail.com", password: 123456789, phone_number: "9163976614", password_confirmation: 123456789, superadmin: false)
 User.create(name: "Franco", email: "fnc314@email.com", phone_number: "4127219550", password: 123456789, password_confirmation: 123456789, superadmin: false)
 User.create(name: "Jack", email: "jacksonsandland@email.com", phone_number: "8585279771", password: 123456789, password_confirmation: 123456789, superadmin: false)
@@ -28,11 +28,13 @@ User.create(name: "Jack", email: "jacksonsandland@email.com", phone_number: "858
 Restaurant.create(name: "Alexander's", num_of_tables: 30)
 
 (1..10).each do
-  Table.create(capacity: 2)
+  section = (1..5).to_a.sample
+  Table.create(capacity: 2, section_id: section)
 end
 
 (1..20).each do
-  Table.create(capacity: 4)
+  section = (1..5).to_a.sample
+  Table.create(capacity: 4, section_id: section)
 end
 
 Server.create(name: "Joan")
