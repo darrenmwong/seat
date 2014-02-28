@@ -36,8 +36,11 @@ class ReservationsController < ApplicationController
     # Use method from ReservatoinsHelper to determine
     # the end of a reservation.  Set that value to new instance of Reservation
     time_end = end_time_calculator(new_res[:begin])
-    new_res.update_attributes(end: time_end)
-    reservation_confirmation_email_send(current_user)
+
+    new_res.end = time_end
+    new_res.save
+    # Confirm reseration with email
+    ReservationMailer.reservation_confirmation(current_user.id, new_res.id).deliver
 
     respond_to do |f|
       f.html { redirect_to user_path(current_user.id) }
@@ -60,10 +63,12 @@ class ReservationsController < ApplicationController
     reservation = current_user.reservations.find(params[:id])
     # extract the string
     new_party_size = params.require(:reservation).permit(:party_size)
+    # Extract from hash
+    newparty = new_party_size["party_size"]
     # Convert to integer
-    new_party_size = new_party_size.to_i
+    newparty = newparty.to_i
     # set reservation.party_size to the new_party_size
-    reservation.party_size = new_party_size
+    reservation.party_size = newparty
 
     # Second grab the dates to change (from create [above] and admin/reservations.rb [line 67])
     res_begin = params.require(:reservation).permit(:begin)
@@ -74,6 +79,9 @@ class ReservationsController < ApplicationController
 
     # Save changes and commit to database
     reservation.save
+
+    # Update user with email
+    ReservationMailer.reservation_update_confirmation(current_user.id, reservation.id).deliver
     redirect_to user_path(current_user.id)
   end
 
