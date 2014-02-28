@@ -35,8 +35,10 @@ class ReservationsController < ApplicationController
     # Use method from ReservatoinsHelper to determine
     # the end of a reservation.  Set that value to new instance of Reservation
     time_end = end_time_calculator(new_res[:begin])
-    new_res.update_attributes(end: time_end)
-    reservation_confirmation_email_send(@user)
+    new_res.end = time_end
+    new_res.save
+    # Confirm reseration with email
+    reservation_confirmation_email_send(current_user.id)
 
     respond_to do |f|
       f.html { redirect_to user_path(current_user.id) }
@@ -73,6 +75,9 @@ class ReservationsController < ApplicationController
 
     # Save changes and commit to database
     reservation.save
+
+    # Update user with email
+    reservation_update_confirmation_email_send(current_user.id, reservation.id)
     redirect_to user_path(current_user.id)
   end
 
