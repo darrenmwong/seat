@@ -8,7 +8,11 @@ class Table < ActiveRecord::Base
   # by Rafi
   
   def to_s
-    "Table: #{self.id}, Capacity: #{self.capacity}"
+    "Table #{self.id} (Seats: #{self.capacity})"
   end
   
+  def to_list
+    "Table #{self.id}"
+  end
+
 end

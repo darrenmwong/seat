@@ -1,7 +1,8 @@
 ActiveAdmin.register Reservation do
+  config.sort_order = "created_at_asc"
 
   form do |f|
-    f.inputs "Label" do
+    f.inputs "Reservation" do
       f.input :party_size
       f.input :begin, :as => :datetime_select, :options => {:twelve_hour => true, :ampm => true, :minute_step => 30, :start_hour => 18, :end_hour => 21}
       f.input :table_ids, :as => :check_boxes, :collection => Table.all.sort
@@ -17,13 +18,53 @@ ActiveAdmin.register Reservation do
 
   # Index Page (admin/reservations)
   index do
-    sting = ""
+    column(:customer) { |res| User.find(res.user_id).name }
     column(:date) { |res| res.begin.to_date.strftime("%A %b. %d, %Y") }
     column(:time) { |res| (res.begin.to_time + 8.hours).strftime("%l:%M %p") }
     column :party_size
-    column(:server_id) { |res| Server.find(res.server_id).name }
-    column(:tables) { |res| res.tables.all.sort.map { |t| t.to_s } }
-    #binding.pry
+    column(:server_id) do |res|
+      if res.server_id != nil
+        Server.find(res.server_id).name
+      else
+        "No Server Assigned"
+      end
+    end
+    # Above logic makes the 11th server moot -> REMOVE FROM SEED
+    column(:tables) do |res|
+      if res.tables.empty?
+        "Not Assigned To Tables(s)"
+      else
+        table_string = "" 
+        res.tables.each { |t| table_string += (" " + t.to_list + " ") }
+        table_string
+      end
+    end
+    column(:table_count) do |res|
+      if res.tables.empty?
+        "Not Assigned To Table(s)"
+      else
+        res.tables.count
+      end
+    end
+    column(:available_seat_count) do |res|
+      if res.tables.empty?
+        "Not Assigned To Table(s)"
+      else
+        available_seat_count = 0
+        res.tables.each { |t| available_seat_count += t.capacity }
+        available_seat_count
+      end
+    end
+    column(:seats_available) do |res|
+      # display available_seat_count - party_size
+      available_seat_count = 0
+      res.tables.each { |t| available_seat_count += t.capacity }
+      if available_seat_count - res.party_size < 0
+        "Not Assigned To Table(s)"
+      else
+        available_seat_count - res.party_size
+      end
+    end
     default_actions   
   end
 
@@ -37,7 +78,11 @@ ActiveAdmin.register Reservation do
       row(:end) { |res| (res.end.to_time + 8.hours).strftime("%l:%M %p") }
       row :party_size
       row(:server_id) { |res| Server.find(res.server_id).name }
-      row(:tables) { |res| res.tables.all.sort.map { |t| t.to_s } }
+      row(:tables) do |res|
+        table_string = "" 
+        res.tables.all.sort.each { |t| table_string += "#{t.id}" + " "}
+        table_string
+      end
     end
   end
 
@@ -45,6 +90,20 @@ ActiveAdmin.register Reservation do
 
     def permitted_params
       params.permit reservation: [ :begin, :end, :party_size, :server_id, :table_ids, :image_file_size ]
+    end
+
+    def create
+      permitted_params
+      # Ability for Admin to create reservations (overlooked)
+      res = current_user.reservations.new
+      res.begin = DateTime.new(params[:reservation]["begin(1i)"].to_i, params[:reservation]["begin(2i)"].to_i, params[:reservation]["begin(3i)"].to_i, params[:reservation]["begin(4i)"].to_i, params[:reservation]["begin(5i)"].to_i)
+      res.end = res.begin + 90.minutes
+      res.server_id = params[:reservation][:server_id]
+      params[:reservation][:table_ids].each do |t|
+        res.tables << Table.find(t.to_i) if t != ""
+      end
+      res.save!
+      redirect_to admin_reservation_path(res.id)
     end
 
     def update
