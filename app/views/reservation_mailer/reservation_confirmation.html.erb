@@ -4,9 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Thank you for dining through Seat, <%= user.name %></h1>
+    <h1>Thank you for dining through Seat, <%= @user.name %></h1>
 
-    "This is just a friendly reminder that you have a reservation at <%= Restaurant.first.name %> on <%= l(user.reservations.last.begin, format: :default) %> for <%= user.reservations.last.party_size %> person(s).  We can't wait to seat you."
+    "CONGRATS!!!  You now have a reservation at <%= Restaurant.first.name %> on <%= l(@reservation.begin, format: :default) %> for <%= @reservation.party_size %> person(s).  We can't wait to seat you."
 
     <p> 
     <p>  

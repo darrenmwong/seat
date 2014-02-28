@@ -1,8 +1,9 @@
 class ReservationMailer < ActionMailer::Base
   default from: "eatwithseat@gmail.com"
 
-  def reservation_confirmation(user_id)
+  def reservation_confirmation(user_id, new_res_id)
     @user = User.find(user_id)
+    @reservation = @user.reservations.find(new_res_id)
     mail(to: @user.email, subject: 'Thanks for booking with Seat')
   end
 

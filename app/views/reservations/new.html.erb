@@ -3,8 +3,8 @@
   <div class="animated animationDelayLong fadeIn">
 <%= form_for :reservation, :url => user_reservations_path, :method => :post do |f| %>  
   <%= f.label "When?" %> <br>
-  <%= f.date_select :begin
-  %><br><br>
+  <%= f.date_select :begin %>
+  <br><br>
   <%= f.time_select :begin, 
    {:twelve_hour => true, :ampm => true, :minute_step => 30,  
     :start_hour => 18, :end_hour => 21} %> <br>
