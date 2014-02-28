@@ -3,7 +3,7 @@ class ReservationsController < ApplicationController
   include ReservationsHelper
 
   def index
-    @reservations = Reservation.all
+    @reservations = current_user.reservations.all
     respond_to do |f|
       f.html
       f.json { render json: @reservations, only: [:begin, :party_size] }
@@ -40,7 +40,7 @@ class ReservationsController < ApplicationController
     reservation_confirmation_email_send(current_user)
 
     respond_to do |f|
-      f.html { redirect_to user_reservation_path(current_user.id, new_res.id) }
+      f.html { redirect_to user_path(current_user.id) }
     end
 
   end
@@ -50,24 +50,31 @@ class ReservationsController < ApplicationController
   end
 
   def edit
-    @reservation = Reservation.find(params[:id])
+    @reservation = current_user.reservations.find(params[:id])
   end
 
   def update
-    # if-statment method moved to admin/reservations.rb
-    # because current_user.superadmin uses that controller
-    if current_user.superadmin?
-      reservation = Reservation.find(params[:id])
-      updated_info = params.require(:reservation).permit(:party_size, :begin, :end, :server_id, :table_ids, :restaurant_id)
-      updated_info[:table_ids].each { |tid| reservation.tables << tid if tid != "" }
-      reservation.update_attributes(updated_info)
-      redirect_to admin_reservation_path(reservation.id)
-    else
-      @reservation = current_user.reservations.find(params[:id])
-      updated_info = params.require(:reservation).permit(:party_size, :begin)
-      @reservation.update_attributes(updated_info)
-      redirect_to user_path(current_user.id)
-    end
+    # this method only applies if current_user.superadmin = false
+
+    # First find the reservation through the current_user.reservation
+    reservation = current_user.reservations.find(params[:id])
+    # extract the string
+    new_party_size = params.require(:reservation).permit(:party_size)
+    # Convert to integer
+    new_party_size = new_party_size.to_i
+    # set reservation.party_size to the new_party_size
+    reservation.party_size = new_party_size
+
+    # Second grab the dates to change (from create [above] and admin/reservations.rb [line 67])
+    res_begin = params.require(:reservation).permit(:begin)
+    # create new DateTime object
+    new_begin = DateTime.new(res_begin["begin(1i)"].to_i, res_begin["begin(2i)"].to_i, res_begin["begin(3i)"].to_i, res_begin["begin(4i)"].to_i, res_begin["begin(5i)"].to_i)
+    # set reservation.begin to new_begin
+    reservation.begin = new_begin
+
+    # Save changes and commit to database
+    reservation.save
+    redirect_to user_path(current_user.id)
   end
 
   def destroy
