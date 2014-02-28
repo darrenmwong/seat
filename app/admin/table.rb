@@ -15,6 +15,12 @@ ActiveAdmin.register Table do
     attributes_table do
       row :restaurant
       row :capacity
+      row(:reservations_scheduled) do |table|
+        table.reservations.map do |res|
+          ["Reservation ID: #{res.id}", "Reservation Name: #{res.user.name}", "Date: #{res.begin.to_date.strftime("%A %b. %d, %Y")}", "Time: #{(res.begin.to_time + 8.hours).strftime("%l:%M %p")}",
+          "Number Of Guests: #{res.party_size}", "Assigned Server: #{res.server.name}"]
+        end
+      end
     end
   end
 
