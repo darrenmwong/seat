@@ -1,6 +1,8 @@
+
 <div class="authform">
-  <div class="resForm"><br><br>
-<%= form_for :reservation, :url => user_reservations_path, :method => :post  do |f| %>
+  <div class="animated animationDelayLong fadeIn">
+  <div class="resForm"><br><br><br><br><br><br><br>
+<%= form_for :reservation, :url => user_reservations_path, :method => :post do |f| %>
   
   <%= f.label "When?" %> <br>
   <%= f.date_select :begin
@@ -20,6 +22,10 @@
   <%= f.submit class: "button" %>
 
 <% end %>
+</div>
+</div>
+
+
 
 </div>
-</div>
+
