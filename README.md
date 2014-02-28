@@ -12,10 +12,8 @@ Planned Updates
 ====
 The planned updates include support for managing finances (pay rate, total cost of meal for a reservation, etc) and automated assignment of reservations to tables based on the size of the party and what spacing (including physical arrangement of tables and the current state of affairs of the restaurant) is available at a given time.
 
+Other Work
 ====
-
-More work from the makers of seat can be found at...
-
 Jackson Sandland:
 https://github.com/jacksonsandland
 
