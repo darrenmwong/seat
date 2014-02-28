@@ -39,7 +39,7 @@ class ReservationsController < ApplicationController
     reservation_confirmation_email_send(@user)
 
     respond_to do |f|
-      f.html { redirect_to user_reservation_path(current_user.id, new_res.id) }
+      f.html { redirect_to user_path(current_user.id) }
     end
 
   end
