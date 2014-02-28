@@ -1,8 +1,70 @@
-.body{
-  background-color: transparent;
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
+.fadeIn {
+  animation-name: fadeIn;
+}
 
+.top {
+  margin-top: 75px;
+}
+
+.showPage {
+  background-color: grey;
+  opacity: .8;
+  text-align: right;
+  padding-right: 10px;
+  overflow: hidden;
+  z-index: -1;
+
+}
+.showfont {
+  color: black;
+  z-index: 2;
+}
+
+.body{
+  background-color: transparent;
+
+}
+
+.navbar-default {
+    background-color: transparent;
+    opacity: .9;
+    border: 20px;
+    border-bottom-color: black;
+    top: 12px;
+}
+
+.navbar-default .navbar-brand:hover {
+    text-decoration: underline;
+  }
+
+
+ .navbar-default .navbar-nav > li > a {
+    color:  #ecf0f1;
+    text-decoration: none;
+  }
+
+  .collapse .navbar-collapse .navbar-default .navbar-nav {
+    text-align: right;
+    float: right;
+  }
+
+
+}
+.resForm {
+  text-align: center;
+  opacity: 50%;
+}
+
+.numField {
+  max-width: 100px;
+  text-align: center;
+
+}
 
 .tag_line {
   font-family: homestead;
@@ -110,6 +172,33 @@
     position: absolute;
     ...
     z-index: 200;
+}
+
+/*SLIDE LEFT TO RIGHT */
+.sliding-u-l-r {
+display: inline-block;
+}
+.sliding-u-l-r:after {
+content: '';
+display: block;
+height: 3px;
+width: 0;
+background: transparent;
+transition: width .5s ease, background-color .5s ease;
+t
+}
+.sliding-u-l-r:hover:after {
+width: 100%;
+background: white;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+color: white;
+text-decoration: none;
 }
 
 

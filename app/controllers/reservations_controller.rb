@@ -16,6 +16,7 @@ class ReservationsController < ApplicationController
       redirect_to sign_in_path
     else
       @reservation = current_user.reservations.new
+
     end
   end
 
@@ -35,6 +36,7 @@ class ReservationsController < ApplicationController
     # Use method from ReservatoinsHelper to determine
     # the end of a reservation.  Set that value to new instance of Reservation
     time_end = end_time_calculator(new_res[:begin])
+
     new_res.end = time_end
     new_res.save
     # Confirm reseration with email
