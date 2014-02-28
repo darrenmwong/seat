@@ -1,5 +1,5 @@
-
 ActiveAdmin.register User do
+  config.sort_order = "id_asc"
 
   form do |f|
     f.inputs "User Details" do
@@ -9,6 +9,20 @@ ActiveAdmin.register User do
       f.input :superadmin, :label => "Super Administrator"
     end
     f.buttons
+  end
+
+  filter :name
+  filter :superadmin, :as => :check_boxes
+  filter :email
+  filter :created_at, :label => "Account Created Between"
+
+  index do
+    column :id
+    column :name
+    column :email
+    column :last_sign_in_at
+    column :superadmin
+    
   end
 
   create_or_edit = Proc.new {

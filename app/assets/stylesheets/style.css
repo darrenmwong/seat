@@ -53,6 +53,7 @@ width: 100%;
 max-width: 1920px; 
 position: relative; 
 margin: 0 auto; 
+z-index: 1;
 }
 
 #first article { width: 100%; top: 300px; position: absolute; text-align: center; }

@@ -1,0 +1,24 @@
+<div class="showFont">
+<h1> Profile </h1>
+<p>User: <%= @user.name %></p>
+<p>Email: <%= @user.email if @user.email %></p>
+<% @reservations.each do |r| %>
+<%= r.restaurant.name %><br>
+<%= l(r.begin, format: :default) %><br>
+Party Size: <%= r.party_size %><br>
+<td>
+<button type="button" class="btn-custom-edit" type="button">
+<a href='<%= edit_user_reservation_path(current_user.id, r.id) %>', class="btn-custom-edit">Edit</a></button>
+
+
+
+<button class="btn-custom-delete" type="button">
+  <%= link_to 'Delete', user_reservation_path(current_user.id, r.id), method: 'DELETE', class: 'btn-custom-delete'%>
+</button>
+</td>
+
+
+
+<br><br>
+<% end %>
+</div>

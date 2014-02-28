@@ -1,26 +1,5 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< Updated upstream
-  <head>
-    <link rel="stylesheet" href="bounceinLeft.css">
-    <link rel="stylesheet" href="fadeIn.css">
-    <link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="/assets/images/favicon.ico" />
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
-    <link rel="icon" href="/assets/images/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Seat" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Seat" %>">
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-    <%= csrf_meta_tags %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  </head>
-   <header>
-      <%= render 'layouts/navigation' %>
-      
-    </header>
-  <body>
-    <%= render 'layouts/messages' %>
-=======
 <head>
    <link rel="stylesheet" href="animate.min.css">
   <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
@@ -38,30 +17,24 @@
   <header class="container-fluid">
     <%= render 'layouts/navigation' %>
   </header>
->>>>>>> Stashed changes
+
 
   <div id="main" role="main">
-
   <div class="col-md-12 text-center">
 
-  
-     
-      <%= yield %>   
-
   <!-- Section #1 / Intro -->
-  <section id="first" data-speed="8" data-type="background">      
-    <div class="smashinglogo animated animationDelayLong bounceInLeft" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2"></div> 
-
-<<<<<<< Updated upstream
-    <h1 class="tag_line">Have a seat with us</h1>
-    </div>
-=======
-   <%= yield %>       
+  <section id="first" data-speed="8" data-type="background"> 
+      <%= render 'layouts/messages' %>
+       <%= yield %>       
     <div class="smashinglogo" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2"></div> 
-
-
+    <div class = "slogan_container">
     <img src="http://i.imgur.com/LYYtetg.png" class="tag_line" />
->>>>>>> Stashed changes
+  </div>
+       
+
+
+    </div>
+
     <!-- <article>
     
       <img src=url('http://i.imgur.com/9U1O6J3.png') alt="tutorial-title" width="711" height="242" />
@@ -109,7 +82,7 @@
   <!-- Section #4 / HTML5 Video -->
   <section id="fourth" data-speed="8" data-type="background" data-offsetY="250">
       <article>
-       <h1></h1>
+
       </article>
 
   </section>  
