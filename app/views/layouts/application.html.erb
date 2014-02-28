@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+     <link rel="stylesheet" href="animate.min.css">
     <link rel="stylesheet" href="bounceinLeft.css">
     <link rel="stylesheet" href="fadeIn.css">
     <link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="/assets/images/favicon.ico" />
@@ -18,19 +19,20 @@
       
     </header>
   <body>
-    <%= render 'layouts/messages' %>
+
 
   <div id="main" role="main">
 
   <div class="col-md-12 text-center">
 
-  
-     
-      <%= yield %>   
 
   <!-- Section #1 / Intro -->
-  <section id="first" data-speed="8" data-type="background">      
-    <div class="smashinglogo animated animationDelayLong bounceInLeft" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2"></div> 
+  <section id="first" data-speed="8" data-type="background"> 
+      <%= render 'layouts/messages' %>
+
+   <%= yield %>       
+    <div class="smashinglogo" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2"></div> 
+
 
     <h1 class="tag_line">Have a seat with us</h1>
     </div>
@@ -70,7 +72,7 @@
   <!-- Section #4 / HTML5 Video -->
   <section id="fourth" data-speed="8" data-type="background" data-offsetY="250">
       <article>
-       <h1></h1>
+
       </article>
 
   </section>  

@@ -1,22 +1,60 @@
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.top {
+  margin-top: 75px;
+}
+
+.showPage {
+  background-color: grey;
+  opacity: .8;
+  text-align: right;
+  padding-right: 10px;
+  overflow: hidden;
+  z-index: -1;
+
+}
+.showfont {
+  color: black;
+  z-index: 2;
+}
+
 .body{
   background-color: transparent;
+
 }
 
 .navbar-default {
     background-color: transparent;
+    opacity: .9;
     border: 20px;
     border-bottom-color: black;
+    top: 12px;
 }
 
 .navbar-default .navbar-brand:hover {
-    color: blue;
+    text-decoration: underline;
   }
 
-.navbar-default .navbar-nav > li > a {
+
+ .navbar-default .navbar-nav > li > a {
     color:  #ecf0f1;
     text-decoration: none;
   }
 
+  .collapse .navbar-collapse .navbar-default .navbar-nav {
+    text-align: right;
+    float: right;
+  }
+
+
+}
 .resForm {
   text-align: center;
   opacity: 50%;

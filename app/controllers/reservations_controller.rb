@@ -16,6 +16,7 @@ class ReservationsController < ApplicationController
       redirect_to sign_in_path
     else
       @reservation = current_user.reservations.new
+
     end
   end
 
