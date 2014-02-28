@@ -10,9 +10,9 @@ ActiveAdmin.register Server do
   show do |server|
     attributes_table do
       row :restaurant
-      row :id
-      row(:name) { |serv| serv.name if res.id != 11 }
+      row(:name) { |serv| serv.name if serv.id != 11 }
       row(:hired_date) { |serv| serv.created_at.to_date.strftime("%A %b. %d, %Y") }
+      row(:employee_id) { |serv| serv.id if serv.id != 11}
     end
   end
   # See permitted parameters documentation:

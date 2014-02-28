@@ -62,7 +62,7 @@ ActiveAdmin.register Reservation do
       # Update reservation table assignment
       res.tables = tables
       
-      # Second get date information changes (using original reservations_controller.rb)
+      # Second get date information changes (using original reservations_controller.rb on line 67)
       res_begin = params[:reservation]
       new_begin = DateTime.new(res_begin["begin(1i)"].to_i, res_begin["begin(2i)"].to_i, res_begin["begin(3i)"].to_i, res_begin["begin(4i)"].to_i, res_begin["begin(5i)"].to_i)
       # set res.begin to newly created DateTime object
@@ -77,9 +77,17 @@ ActiveAdmin.register Reservation do
       serverid = serverid.to_i
       # set res.server_id to the new serverid
       res.server_id = serverid
-      # save changes and commit to database
-      res.save
+      
 
+      # Finally get new party_size information
+      partysize = params[:reservation][:party_size]
+      # Convert to integer
+      partysize = partysize.to_i
+      # set res.party_size to the new partysize
+      res.party_size = partysize
+      
+      # Save changes and commit to database
+      res.save
       redirect_to admin_reservation_path(res.id)
     end
 
