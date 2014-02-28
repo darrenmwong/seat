@@ -35,7 +35,9 @@
     opacity: .9;
     border: 20px;
     border-bottom-color: black;
-    top: 12px;
+    border-bottom: 1px solid white;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .navbar-default .navbar-brand:hover {
@@ -202,5 +204,18 @@ color: white;
 color: white;
 text-decoration: none;
 }
+
+.root_icon{
+  image:"http://i.imgur.com/AJJUPtn.png";
+  width: 100px;
+}
+
+.navbar-nav.nav-justified > li{
+    float:none;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+border-color: #e7e7e7;
+margin-right: 22px;
 
 
