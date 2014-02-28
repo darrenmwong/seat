@@ -1,4 +1,5 @@
 ActiveAdmin.register Reservation do
+  config.sort_order = "created_at_asc"
 
   form do |f|
     f.inputs "Reservation" do
@@ -23,7 +24,7 @@ ActiveAdmin.register Reservation do
     column(:server_id) { |res| Server.find(res.server_id).name }
     column(:tables) do |res|
       table_string = "" 
-      res.tables.all.sort.each { |t| table_string += t.to_list + " "}
+      res.tables.all.sort.each { |t| table_string += " " + t.to_list + " "}
       table_string
     end
     column(:table_count) { |res| res.tables.count }

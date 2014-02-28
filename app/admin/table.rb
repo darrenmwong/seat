@@ -2,7 +2,7 @@ ActiveAdmin.register Table do
   config.sort_order = "id_asc"
   
   index do
-    column "Table Number", :id, sortable: true
+    column "Table Number", :id
     column "Capacity", :capacity
     # column "Server", :server_id #do |id| Server.find(id).name end
     # filter :server_id, as: :check_boxes, collection: proc { Server.all }
@@ -40,8 +40,9 @@ ActiveAdmin.register Table do
       # Reassign value and save
       table.capacity = new_capa
       table.save
+      redirect_to admin_table_path(table.id)
     end
-    
+
   end
 
   
