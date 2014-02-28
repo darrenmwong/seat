@@ -53,20 +53,11 @@ class ReservationsController < ApplicationController
   end
 
   def update
-    # if-statment method moved to admin/reservations.rb
-    # because current_user.superadmin uses that controller
-    if current_user.superadmin?
-      reservation = Reservation.find(params[:id])
-      updated_info = params.require(:reservation).permit(:party_size, :begin, :end, :server_id, :table_ids, :restaurant_id)
-      updated_info[:table_ids].each { |tid| reservation.tables << tid if tid != "" }
-      reservation.update_attributes(updated_info)
-      redirect_to admin_reservation_path(reservation.id)
-    else
-      @reservation = current_user.reservations.find(params[:id])
-      updated_info = params.require(:reservation).permit(:party_size, :begin)
-      @reservation.update_attributes(updated_info)
-      redirect_to user_path(current_user.id)
-    end
+    # this method only applies to the user (hence the restricted permissions)
+    @reservation = current_user.reservations.find(params[:id])
+    updated_info = params.require(:reservation).permit(:party_size, :begin)
+    @reservation.update_attributes(updated_info)
+    redirect_to user_path(current_user.id)
   end
 
   def destroy

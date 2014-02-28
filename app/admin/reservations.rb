@@ -20,7 +20,7 @@ ActiveAdmin.register Reservation do
     sting = ""
     column(:date) { |res| res.begin.to_date.strftime("%A %b. %d, %Y") }
     column(:time) { |res| (res.begin.to_time + 8.hours).strftime("%l:%M %p") }
-    column "Party Size", :party_size
+    column :party_size
     column(:server_id) { |res| Server.find(res.server_id).name }
     column(:tables) { |res| res.tables.all.sort.map { |t| t.to_s } }
     #binding.pry

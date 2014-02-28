@@ -1,6 +1,20 @@
 ActiveAdmin.register Server do
-
+  config.sort_order = "id_asc"
   
+  index do
+    column(:name) { |serv| serv.name if serv.id != 11 }
+    column(:hired_date) { |serv| serv.created_at.to_date.strftime("%A %b. %d, %Y") if serv.id != 11 }
+    default_actions
+  end
+
+  show do |server|
+    attributes_table do
+      row :restaurant
+      row :id
+      row(:name) { |serv| serv.name if res.id != 11 }
+      row(:hired_date) { |serv| serv.created_at.to_date.strftime("%A %b. %d, %Y") }
+    end
+  end
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

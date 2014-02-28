@@ -1,5 +1,5 @@
 ActiveAdmin.register Table do
-
+  config.sort_order = "id_asc"
   
   index do
     column "Table Number", :id, sortable: true
