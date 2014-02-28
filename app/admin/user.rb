@@ -14,6 +14,7 @@ ActiveAdmin.register User do
   filter :name
   filter :superadmin, :as => :check_boxes
   filter :email
+  filter :created_at, :label => "Account Created Between"
 
   index do
     column :id

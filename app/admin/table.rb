@@ -21,8 +21,8 @@ ActiveAdmin.register Table do
 
   show do |table|
     attributes_table do
-      row "Restaurant", :restaurant
-      row "Seats", :capacity
+      row :restaurant
+      row :capacity
     end
   end
 
