@@ -11,6 +11,10 @@ ActiveAdmin.register User do
     f.buttons
   end
 
+  filter :name
+  filter :superadmin, :as => :check_boxes
+  filter :email
+
   index do
     column :id
     column :name

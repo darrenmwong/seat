@@ -32,6 +32,15 @@ ActiveAdmin.register Table do
       params.permit table: [ :capacity ]
     end
 
+    def create
+      permitted_params
+
+      t = Table.new
+      t.capacity = params[:table][:capacity]
+      t.save
+      redirect_to admin_table_path(t.id)
+    end
+
     def update
       permitted_params
 
