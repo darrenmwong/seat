@@ -31,26 +31,36 @@ ActiveAdmin.register Reservation do
     end
     # Above logic makes the 11th server moot -> REMOVE FROM SEED
     column(:tables) do |res|
-      table_string = "" 
-      res.tables.all.sort.each { |t| table_string += " " + t.to_list + " "}
-      if table_string = ""
-        "Not Assigned To Table(s)"
+      if res.tables.empty?
+        "Not Assigned To Tables(s)"
       else
+        table_string = "" 
+        res.tables.each { |t| table_string += (" " + t.to_list + " ") }
         table_string
       end
     end
-    column(:table_count) { |res| res.tables.count }
+    column(:table_count) do |res|
+      if res.tables.empty?
+        "Not Assigned To Table(s)"
+      else
+        res.tables.count
+      end
+    end
     column(:available_seat_count) do |res|
-      available_seat_count = 0
-      res.tables.each { |t| available_seat_count += t.capacity }
-      available_seat_count
+      if res.tables.empty?
+        "Not Assigned To Table(s)"
+      else
+        available_seat_count = 0
+        res.tables.each { |t| available_seat_count += t.capacity }
+        available_seat_count
+      end
     end
     column(:seats_available) do |res|
       # display available_seat_count - party_size
       available_seat_count = 0
       res.tables.each { |t| available_seat_count += t.capacity }
       if available_seat_count - res.party_size < 0
-        "No Tables Assigned!"
+        "Not Assigned To Table(s)"
       else
         available_seat_count - res.party_size
       end
