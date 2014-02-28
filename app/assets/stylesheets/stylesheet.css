@@ -186,11 +186,13 @@
 /*SLIDE LEFT TO RIGHT */
 .sliding-u-l-r {
 display: inline-block;
+
+
 }
 .sliding-u-l-r:after {
-content: '';
 display: block;
 height: 3px;
+margin-right: 100px;
 width: 0;
 background: transparent;
 transition: width .5s ease, background-color .5s ease;
@@ -199,6 +201,7 @@ t
 .sliding-u-l-r:hover:after {
 width: 100%;
 background: white;
+
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -208,6 +211,7 @@ color: white;
 .navbar-default .navbar-nav > li > a {
 color: white;
 text-decoration: none;
+
 }
 
 .root_icon{
