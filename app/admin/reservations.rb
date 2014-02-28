@@ -3,7 +3,7 @@ ActiveAdmin.register Reservation do
   form do |f|
     f.inputs "Label" do
       f.input :party_size
-      f.input :begin, :as => :datetime_select
+      f.input :begin, :as => :datetime_select, :options => {:twelve_hour => true, :ampm => true, :minute_step => 30, :start_hour => 18, :end_hour => 21}
       f.input :table_ids, :as => :check_boxes, :collection => Table.all.sort
       f.input :server
     end
