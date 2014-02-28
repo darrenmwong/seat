@@ -22,7 +22,7 @@ ActiveAdmin.register Reservation do
     column(:time) { |res| (res.begin.to_time + 8.hours).strftime("%l:%M %p") }
     column :party_size
     column(:server_id) do |res|
-      if Server.find(res.server_id).name != "- -"
+      if res.server_id != nil
         Server.find(res.server_id).name
       else
         "No Server Assigned"
@@ -32,7 +32,11 @@ ActiveAdmin.register Reservation do
     column(:tables) do |res|
       table_string = "" 
       res.tables.all.sort.each { |t| table_string += " " + t.to_list + " "}
-      table_string
+      if table_string = ""
+        "Not Assigned To Table(s)"
+      else
+        table_string
+      end
     end
     column(:table_count) { |res| res.tables.count }
     column(:available_seat_count) do |res|
