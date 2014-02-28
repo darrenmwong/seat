@@ -24,9 +24,24 @@ ActiveAdmin.register Table do
   # end
 
   controller do
+
     def permitted_params
       params.permit table: [ :capacity ]
     end
+
+    def update
+      permitted_params
+
+      # Find table and params value in question
+      table = Table.find(params[:id])
+      new_capa = params[:table][:capacity]
+      # Convert to integer
+      new_capa = new_capa.to_i
+      # Reassign value and save
+      table.capacity = new_capa
+      table.save
+    end
+    
   end
 
   

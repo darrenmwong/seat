@@ -1,7 +1,7 @@
 ActiveAdmin.register Reservation do
 
   form do |f|
-    f.inputs "Label" do
+    f.inputs "Reservation" do
       f.input :party_size
       f.input :begin, :as => :datetime_select, :options => {:twelve_hour => true, :ampm => true, :minute_step => 30, :start_hour => 18, :end_hour => 21}
       f.input :table_ids, :as => :check_boxes, :collection => Table.all.sort
@@ -17,13 +17,21 @@ ActiveAdmin.register Reservation do
 
   # Index Page (admin/reservations)
   index do
-    sting = ""
     column(:date) { |res| res.begin.to_date.strftime("%A %b. %d, %Y") }
     column(:time) { |res| (res.begin.to_time + 8.hours).strftime("%l:%M %p") }
     column :party_size
     column(:server_id) { |res| Server.find(res.server_id).name }
-    column(:tables) { |res| res.tables.all.sort.map { |t| t.to_s } }
-    #binding.pry
+    column(:tables) do |res|
+      table_string = "" 
+      res.tables.all.sort.each { |t| table_string += t.to_list + " "}
+      table_string
+    end
+    column(:table_count) { |res| res.tables.count }
+    column(:available_seat_count) do |res|
+      available_seat_count = 0
+      res.tables.all.sort.each { |t| available_seat_count += t.capacity }
+      available_seat_count
+    end
     default_actions   
   end
 
@@ -37,7 +45,11 @@ ActiveAdmin.register Reservation do
       row(:end) { |res| (res.end.to_time + 8.hours).strftime("%l:%M %p") }
       row :party_size
       row(:server_id) { |res| Server.find(res.server_id).name }
-      row(:tables) { |res| res.tables.all.sort.map { |t| t.to_s } }
+      row(:tables) do |res|
+        table_string = "" 
+        res.tables.all.sort.each { |t| table_string += "#{t.id}" + " "}
+        table_string
+      end
     end
   end
 
