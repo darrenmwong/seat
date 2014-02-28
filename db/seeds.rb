@@ -46,27 +46,48 @@ Server.create(name: "Simone")
 Server.create(name: "Robert")
 Server.create(name: "Tripta")
 
-(1..30).each do |x|
+Reservation.create(
+  user_id: 4,
+  server_id: 9,
+  :begin => DateTime.new(2014, 03, 01, 19, 30),
+  :end => DateTime.new(2014, 03, 01, 21, 00),
+  party_size: 3,
+  table_ids: [16])
+
+Reservation.create(
+  user_id: 5,
+  server_id: 7,
+  :begin => DateTime.new(2014, 03, 01, 20, 00),
+  :end => DateTime.new(2014, 03, 01, 21, 30),
+  party_size: 1,
+  table_ids: [1])
+
+Reservation.create(
+  user_id: 6,
+  server_id: 1,
+  :begin => DateTime.new(2014, 03, 01, 18, 00),
+  :end => DateTime.new(2014, 03, 01, 19, 30),
+  party_size: 16,
+  table_ids: [26,27,28,29])
+
+(1..30).each do 
+  # Create "random" DateTime object data
   hour = [18, 19, 20, 21].sample
   minutes = [00, 30].sample
+  year = [2014, 2013, 2015].sample
+  month = (1..12).to_a.sample
+  day = (1..28).to_a.sample
+  # Create "random" user data
+  userid = (4..6).to_a.sample
+  # Create "random" party size
+  partysize = (1..24).to_a.sample
+  # Assign a server at "random"
+  serverid = (1..10).to_a.sample
   res = Reservation.new
-  if x % 3 == 1
-    res.party_size = (x ** 2) % 24
-    res.user_id = x % 3
-    res.begin = DateTime.new(2014, (x % 12) + 1, x, hour, minutes)
-    res.end = res.begin + 90.minutes
-    res.save
-  elsif x % 3 == 2
-    res.party_size = (x ** 2) % 24
-    res.user_id = x % 3
-    res.begin = DateTime.new(2014, (x % 12) + 1, x, hour, minutes)
-    res.end = res.begin + 90.minutes
-    res.save
-  else
-    res.party_size = (x ** 2) % 24
-    res.user_id = (x % 3) + 3
-    res.begin = DateTime.new(2014, (x % 12) + 1, x, hour, minutes)
-    res.end = res.begin + 90.minutes
-    res.save
-  end
+  res.party_size = partysize
+  res.user_id = userid
+  res.begin = DateTime.new(year, month, day, hour, minutes)
+  res.end = res.begin + 90.minutes
+  res.server_id = serverid
+  res.save
 end
