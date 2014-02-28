@@ -21,7 +21,14 @@ ActiveAdmin.register Reservation do
     column(:date) { |res| res.begin.to_date.strftime("%A %b. %d, %Y") }
     column(:time) { |res| (res.begin.to_time + 8.hours).strftime("%l:%M %p") }
     column :party_size
-    column(:server_id) { |res| Server.find(res.server_id).name }
+    column(:server_id) do |res|
+      if Server.find(res.server_id).name != "- -"
+        Server.find(res.server_id).name
+      else
+        "No Server Assigned"
+      end
+    end
+    # Above logic makes the 11th server moot -> REMOVE FROM SEED
     column(:tables) do |res|
       table_string = "" 
       res.tables.all.sort.each { |t| table_string += " " + t.to_list + " "}
@@ -30,8 +37,18 @@ ActiveAdmin.register Reservation do
     column(:table_count) { |res| res.tables.count }
     column(:available_seat_count) do |res|
       available_seat_count = 0
-      res.tables.all.sort.each { |t| available_seat_count += t.capacity }
+      res.tables.each { |t| available_seat_count += t.capacity }
       available_seat_count
+    end
+    column(:seats_available) do |res|
+      # display available_seat_count - party_size
+      available_seat_count = 0
+      res.tables.each { |t| available_seat_count += t.capacity }
+      if available_seat_count - res.party_size < 0
+        "No Tables Assigned!"
+      else
+        available_seat_count - res.party_size
+      end
     end
     default_actions   
   end
