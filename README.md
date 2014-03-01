@@ -18,7 +18,7 @@ Resources
 - [Twilio](twilio.com)
 - RailsComposer (to generate initial app)
 - GA Instructors
-- *Each other*
+- **Each other**
 - ...and of course [Google](www.google.com)
 
 
