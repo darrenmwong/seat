@@ -15,10 +15,11 @@ Resources
 - [Facebook](facebook.com)
 - [Omniauth](https://github.com/intridea/omniauth-github)
 - [ActiveAdmin](http://www.activeadmin.info/)
+- [Twilio](twilio.com)
 - RailsComposer (to generate initial app)
 - GA Instructors
-- _Each other_
-- ...and of course Google
+- *Each other*
+- ...and of course [Google](www.google.com)
 
 
 Planned Updates
