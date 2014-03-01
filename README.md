@@ -12,12 +12,19 @@ Resources
 ====
 
 -Devise
+
 -Facebook
+
 -Omniauth
+
 -ActiveAdmin
+
 -RailsComposer (to generate initial app)
+
 -GA Instructors
+
 -Each other
+
 -...and of course Google
 
 
