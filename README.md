@@ -16,10 +16,10 @@ Resources
 - [Omniauth](https://github.com/intridea/omniauth-github)
 - [ActiveAdmin](http://www.activeadmin.info/)
 - [Twilio](twilio.com)
-- RailsComposer (to generate initial app)
+- [RailsComposer (to generate initial app)](http://railsapps.github.io/rails-composer/)
 - GA Instructors
 - **Each other**
-- ...and of course [Google](www.google.com)
+...and of course [Google](www.google.com)
 
 
 Planned Updates
