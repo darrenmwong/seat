@@ -10,6 +10,7 @@ As for the restaurant side of the service, there is a fully functional admin das
 
 Resources
 ====
+```
 Devise
 Facebook
 Omniauth
@@ -18,6 +19,7 @@ RailsComposer (to generate initial app)
 GA Instructors
 Each other
 ...and of course Google
+```
 
 Planned Updates
 ====
