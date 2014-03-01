@@ -11,13 +11,13 @@ As for the restaurant side of the service, there is a fully functional admin das
 Resources
 ====
 
-- Devise
-- Facebook
-- Omniauth
-- ActiveAdmin
+- [Devise](https://github.com/plataformatec/devise)
+- [Facebook](facebook.com)
+- [Omniauth](https://github.com/intridea/omniauth-github)
+- [ActiveAdmin](http://www.activeadmin.info/)
 - RailsComposer (to generate initial app)
 - GA Instructors
-- Each other
+- _Each other_
 - ...and of course Google
 
 
