@@ -28,8 +28,8 @@ The planned updates include support for managing finances (pay rate, total cost 
 
 Other Work
 ====
-[Jackson Sandland:](https://github.com/jacksonsandland)
+[Jackson Sandland](https://github.com/jacksonsandland)
 
-[Darren Wong:](https://github.com/darrenwong916)
+[Darren Wong](https://github.com/darrenwong916)
 
-[Franco Colaizzi:](https://github.com/fnc314)
+[Franco Colaizzi](https://github.com/fnc314)
