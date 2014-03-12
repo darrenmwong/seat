@@ -8,6 +8,10 @@ This app is a full-service yield managment app for restaurants.  The name of the
 
 As for the restaurant side of the service, there is a fully functional admin dashboard (provided by ActiveAdmin) allowing the restaurant admins to schedule reservations, edit existing reservations, view/sort every reservation, manage table/section/server assignments down to which customer/reservation a server is assigned.  Administrator also have the ability to create servers (for new hirees) and create/delete tables (to help keep the system up to date at any given moment).
 
+Live App
+====
+[seat](http://stark-caverns-5761.heroku.com/)
+
 Resources
 ====
 
