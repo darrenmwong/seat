@@ -45,15 +45,19 @@ article h2 { background: url('http://i.imgur.com/9U1O6J3.png'), font-family: 'Lo
  }
 
 /* Introduction | Seat Logo */
-#first .smashinglogo { background: url('http://i.imgur.com/9U1O6J3.png') 50% 100px no-repeat fixed; 
-min-height: 800px; 
-padding: 0; 
-margin: 0; 
-width: 100%; 
-max-width: 1920px; 
-position: relative; 
-margin: 0 auto; 
-z-index: 1;
+#first .brand { 
+  font-family: 'homestead';
+  color: #e74c3c;
+  /*logo image*/
+  background: url('http://i.imgur.com/9U1O6J3.png') 50% 100px no-repeat fixed; 
+  min-height: 800px; 
+  padding: 0; 
+  margin: 0; 
+  width: 100%; 
+  max-width: 1920px; 
+  position: relative; 
+  margin: 0 auto; 
+  z-index: 1;
 }
 
 #first article { width: 100%; top: 300px; position: absolute; text-align: center; }
