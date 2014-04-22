@@ -7,6 +7,9 @@
   <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
   <link rel="icon" href="/assets/images/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <title><%= content_for?(:title) ? yield(:title) : "Seat" %></title>
   <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Seat" %>">
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
@@ -25,8 +28,10 @@
   <!-- Section #1 / Intro -->
   <section id="first" data-speed="8" data-type="background"> 
       <%= render 'layouts/messages' %>
-       <%= yield %>       
-    <div class="brand" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2"></div> 
+       <%= yield %>  
+    <div class="brand" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2">
+
+    </div> 
     <div class="slogan_container">Have a Seat with Us</div>
     <!-- <img src="http://i.imgur.com/LYYtetg.png" class="tag_line" /> -->
     <!-- </div> -->

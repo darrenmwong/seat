@@ -20,6 +20,7 @@ gem 'rails_config'
 gem 'twilio-ruby'
 gem 'omniauth-facebook', '1.4.0'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'bootstrap_form'
 
 group :production do
   gem 'rails_12factor'
@@ -44,3 +45,5 @@ group :test do
   gem 'email_spec'
 end
 gem 'rename'
+
+gem 'jquery-ui-rails'
