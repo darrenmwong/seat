@@ -1,61 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
   <link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="/assets/images/favicon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
   <link rel="icon" href="/assets/images/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
   <title><%= content_for?(:title) ? yield(:title) : "Seat" %></title>
   <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Seat" %>">
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-</head>
+  <%= render 'layouts/messages' %>
+       <%= yield %> 
+  </head>
 <body>
-
   <header class="container-fluid">
     <%= render 'layouts/navigation' %>
   </header>
-
-
   <div id="main" id="transparent" role="main">
-  <div class="col-md-12 text-center">
+    <div class="col-md-12 text-center">
 
-  <!-- Section #1 / Intro -->
-  <section id="first" data-speed="8" data-type="background"> 
-      <%= render 'layouts/messages' %>
-       <%= yield %>  
-    <div class="brand" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2">
+  <!-- Section #1 | Brand, and Cloud gif -->
+      <section id="first" data-speed="8" data-type="background">  
+        <div class="brand" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2">
+        </div>
+      </section>
 
-    </div> 
-    <div class="slogan_container">Have a Seat with Us</div>
-    <!-- <img src="http://i.imgur.com/LYYtetg.png" class="tag_line" /> -->
-    <!-- </div> -->
-       
-
-
-    </div>
-
-    <!-- <article>
-    
-      <img src=url('http://i.imgur.com/9U1O6J3.png') alt="tutorial-title" width="711" height="242" />
-      
-      </article> -->
-  </section>
-
-  <div class="container three-callouts">
-    <div align="center" class="col-md-4">
+    <article>
+      <div class="slogan_container">Have a Seat with Us</div>
+    </article>
+    <div id="equal_spaced" class="three-callouts center_div">
+    <div class="container">
+    <div class="center box1" class="col-md-4">
       <h2>Place a reservation</h2>
       <p>Set a date at your favorite spot.</p>
       <a class="link_style" href="#">Learn More</a>
     </div>
-    <div align="center" class="col-md-4">
+    <div class="center box2" class="col-md-4">
       <h2>Get a reminder text</h2>
       <p>We'll shoot you a text with directions.</p>
       <a class="link_style" href="#">Learn More</a>
     </div>
-    <div align="center" class="col-md-4">
-      <h2>Eat & Enjoy Your Meal</h2>
+    <div class="center box3" class="col-md-4">
+      <h2>Enjoy Your Meal</h2>
       <p>Take a seat and chow down.</p>
       <a class="link_style" href="#">Learn More</a>
     </div>
@@ -69,7 +56,7 @@
   <!-- Section #3 / Photos -->
   <section id="third" data-speed="6" data-type="background" data-offsetY="250">     
     <div class="photograph" data-type="sprite" data-offsetY="1250" data-Xposition="25%" data-speed="2" style="background-position: 25% -150.5px;"></div>
-     <!--  <article>
+   <!--    <article>
         <h2>Eat with Seat</h2>
         <div class="textbox">     
           <p>The next step in your parallax scrolling adventure is to create some sprites!</p>
@@ -94,17 +81,6 @@
   </section>
   
   </div> <!-- // End of #main -->
-
-
-  <link rel="stylesheet" src="<%= asset_path('reset.css') %>"/>
-  <link rel="stylesheet" src="<%= asset_path('style.css') %>"/>
-  <!--[if lt IE 7 ]>
-    <script src="js/libs/dd_belatedpng.js"></script>
-    <script>DD_belatedPNG.fix("img, .png_bg");
-  <![endif]-->
-   
-
     
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   </body>
 </html>
