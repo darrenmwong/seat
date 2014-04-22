@@ -3,10 +3,6 @@
   100% {opacity: 1;}
 }
 
-.fadeIn {
-  animation-name: fadeIn;
-}
-
 .top {
   margin-top: 75px;
 }
@@ -27,7 +23,9 @@
 
 .body{
   background-color: transparent;
-
+  position: relative; /* to make footer in the bottom of the body*/
+  padding-bottom: 45px;  /*footer heigh + 10px*/
+  margin: 0; /*to make footer fill the screen width without scroll*/
 }
 
 .navbar-default {
@@ -285,19 +283,10 @@ background: white;
   float: left;
 }
 
-.three-callouts a:hover {
-  color: #2e3b4e;
-}
 
-.three-callouts a:after {
-  content: "\f054";
-  font-family: "FontAwesome";
-  font-size: 10px;
-  margin-left: 5px;
-}
 
 body {
-  background: #4aabb1;
+  /*background: #4aabb1;*/
 }
 
 hr {
@@ -308,34 +297,11 @@ hr {
   margin: 50px 0;
 }
 
-.heart_fork_button a {
-  position: absolute;
-  top:0;
-  width: 50px;
-  height: 50px;
-  /*background-color: red;*/
-  left: 50%;
-  margin-left: -25px;
-}
 
 .container {
   text-align: center;
 }
 
-.slogan_container {
-  text-align: center;
-  font-family: 'homestead';
-  font-size: 72px;
-  background: -webkit-linear-gradient(#fff, #f1c40f);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-}
-
-.container .three-callouts {
-  margin-left: 131px;
-}
 
 .form_font_style {
   font-family: 'homestead';
@@ -369,14 +335,6 @@ hr {
   background: transparent !important;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+.no_flow {
+  overflow: hidden;
+}

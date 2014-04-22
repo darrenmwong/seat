@@ -1,58 +1,14 @@
-
-article h2 { 
-  background: url('http://i.imgur.com/9U1O6J3.png'), font-family: 'Lobster Two'; 
-  font-size: 60px; 
-  margin: 25px 0; 
-  line-height: 1em; 
-}
-
-#logo {
-  background: url('');
-}
-
-#first { 
-  /* Cloud gif */
-  background: url('http://i.imgur.com/DLQA4mN.gif') 50% 0 no-repeat fixed;
+#background { 
+  background: url('https://i.imgur.com/ae9bP7g.jpg') 50% 0 no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }  
 
-#second { 
-  background: url('') 50% 0 no-repeat fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-
-#third { 
-  background: url('') 50% 0 no-repeat fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#fourth { 
-  background: url('') 50% 0 no-repeat fixed; 
-}
-
-}
-#theend { background: url('') 50% bottom no-repeat fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
- }
-
-/* Section #1 | Seat Logo */
-#first .brand { 
+#background .brand { 
   font-family: 'homestead';
   color: #e74c3c;
-  /*logo image*/
   background: url('http://i.imgur.com/9U1O6J3.png') 50% 100px no-repeat fixed; 
   min-height: 800px; 
   padding: 0; 
@@ -64,89 +20,40 @@ article h2 {
   z-index: 1;
 }
 
-#first article { width: 100%; top: 300px; position: absolute; text-align: center; }
-#first article p,
-#first article a { color: transparent; }
-#first article a { text-decoration: underline; }
-#first article a:hover { color: #fff; }
-
-/* Background Only */
-#second { padding: 50px 0;}
-#second article { background: url('') repeat #333; color: transparent; width: 445px; margin-left: 100px; padding: 10px 20px; text-shadow: 0 -1px 0 rgba(0,0,0,0.5); line-height: 1.5em; box-shadow: 0 0 25px rgba(0,0,0,0.3); border: 1px solid rgba(150,150,150,0.1); }
-#second article p { margin-bottom: 25px; }
-#second article a { color: transparent;}
-
-/*http://i.imgur.com/yza7DE8.jpg*/
-
-/* Photograph */
-#third article {  background: url('') repeat #333; color: transparent; padding: 10px 20px; margin: 100px 0 0 60%; text-shadow: 0 -1px 0 rgba(0,0,0,0.5); line-height: 1.5em; color: #fff; position: absolute; top: 0; box-shadow: 0 0 25px rgba(0,0,0,0.3); border: 1px solid rgba(150,150,150,0.1); }
-/*neon diner*/
-#third .photograph { 
-  /*neon bottles*/
-  background: url('https://i.imgur.com/ae9bP7g.jpg') transparent 40% 100px no-repeat fixed; 
-  min-height: 1000px; 
-  padding: 0; 
-  margin: 0; 
-  width: 100%; 
-  max-width: 1920px; 
-  position: relative; 
-  margin: 0 auto; 
-  width: 50%;
-  height: 50%;
-  z-index: -1000;
- /* -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
-}
-#third article p { width: 300px; margin-bottom: 25px; }
-
-/* HTML5 Video */
-#fourth article {  margin-left: 10%; text-shadow: 0 -1px 0 rgba(0,0,0,0.5); line-height: 1.5em; color: transparent; position: absolute; top: 0; }
-#fourth article p { width: 300px; margin: 50px 0; }
-#fourth video { position: fixed; left: 50%; box-shadow: 0 0 25px rgba(0,0,0,0.7); z-index: 1;}
-
-/* The End */
-#theend .byebye { 
-  background: url('https://i.imgur.com/asoBFXk.jpg') 40% 100px no-repeat fixed; 
-  height: 1000px; 
-  padding: 0; 
-  margin: 0; 
-  width: 100%; 
-  /*max-width: 1920px; */
-  /*fit image to div*/
-  max-width:100%; 
-  max-height:100%;
-  position: relative; 
-  margin: 0 auto; 
+#black_background {
+  /*thin red line*/
+  background: black;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 0px 2pt #e74c3c;
+  margin-top: 246px !important;
+  width:910px;
+  float: right;
 }
 
-.center_div {
-  display: block;
-  margin-left: auto !important;
-  margin-right: auto !important;
+.noFlow {
+  overflow: hidden;
 }
 
-#equal_spaced {
-  text-align: justify;
-  -ms-text-justify: distribute-all-lines;
-  text-justify: distribute-all-lines;
-  margin: 0 auto;
-
+html, body, #container { 
+  height: 100% !important; 
+}
+body > #container { 
+  height: auto; min-height: 100% !important; 
 }
 
-.box1, .box2, .box3 {
-  display: table-cell; 
-  vertical-align: middle; 
-  text-align: center; 
-  vertical-align: top;
+#footer {
+  clear: both !important; 
+  position: relative !important; 
+  z-index: 10 !important; 
+  margin-top: -3em !important; 
+  bottom: -500px;
   text-align: center;
-  display: inline-block;
-  *display: inline;
-  float: left;
-  padding: 15px;
-  margin-top: 20px;
+  font-family: 'homestead';
+  font-size: 72px;
+  background: -webkit-linear-gradient(#fff, #f1c40f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
-
-
-

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no_flow">
   <head>
   <link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="/assets/images/favicon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
@@ -13,74 +13,23 @@
   <%= render 'layouts/messages' %>
        <%= yield %> 
   </head>
-<body>
+<body id="background">
   <header class="container-fluid">
     <%= render 'layouts/navigation' %>
   </header>
-  <div id="main" id="transparent" role="main">
+  <div class="container">
     <div class="col-md-12 text-center">
-
-  <!-- Section #1 | Brand, and Cloud gif -->
-      <section id="first" data-speed="8" data-type="background">  
-        <div class="brand" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2">
-        </div>
-      </section>
-
-    <article>
-      <div class="slogan_container">Have a Seat with Us</div>
-    </article>
-    <div id="equal_spaced" class="three-callouts center_div">
-    <div class="container">
-    <div class="center box1" class="col-md-4">
-      <h2>Place a reservation</h2>
-      <p>Set a date at your favorite spot.</p>
-      <a class="link_style" href="#">Learn More</a>
-    </div>
-    <div class="center box2" class="col-md-4">
-      <h2>Get a reminder text</h2>
-      <p>We'll shoot you a text with directions.</p>
-      <a class="link_style" href="#">Learn More</a>
-    </div>
-    <div class="center box3" class="col-md-4">
-      <h2>Enjoy Your Meal</h2>
-      <p>Take a seat and chow down.</p>
-      <a class="link_style" href="#">Learn More</a>
+      <div id="background">  
+        <div class="brand">
+        <div id="black_background">
+      <!-- <div class="slogan_container">Have a Seat with Us</div> -->
+        <div clas="slogan container" id="footer">Have a Seat with Us </div>
+      </div>
     </div>
   </div>
-  
-  <hr/>
-           
-     
-  </section>
-  
-  <!-- Section #3 / Photos -->
-  <section id="third" data-speed="6" data-type="background" data-offsetY="250">     
-    <div class="photograph" data-type="sprite" data-offsetY="1250" data-Xposition="25%" data-speed="2" style="background-position: 25% -150.5px;"></div>
-   <!--    <article>
-        <h2>Eat with Seat</h2>
-        <div class="textbox">     
-          <p>The next step in your parallax scrolling adventure is to create some sprites!</p>
-          <p>I have cut out one of the photos in this background and use it as a sprite. It scrolls at a different speed to the background <i>and</i> the window, and it's this effect that's used so well on Nike Better World and other parallax sites..</p>
-          <p>Using too many sprites can slow down older computers, and you need to use some clever maths (and trial & error!) to work out their placement on the page.</p>
-        </div>
-      </article> -->
-  </section>  
-  
-
-  <!-- Section #4 / HTML5 Video -->
-  <section id="fourth" data-speed="8" data-type="background" data-offsetY="250">
-      <article>
-
-      </article>
-
-  </section>  
-
-  <!-- Section #5 / The End-->
-  <section id="theend" data-speed="8" data-type="background" data-offsetY="250">      
-    <div class="byebye" data-type="sprite" data-offsetY="-1600" data-Xposition="50%" data-speed="-2"></div> 
-  </section>
-  
-  </div> <!-- // End of #main -->
     
+   
+
+
   </body>
 </html>
