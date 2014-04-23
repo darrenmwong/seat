@@ -3,41 +3,52 @@
   100% {opacity: 1;}
 }
 
-.fadeIn {
-  animation-name: fadeIn;
-}
-
 .top {
   margin-top: 75px;
 }
 
 .showPage {
   background-color: lightblue;
-  opacity: .8;
+  opacity: .9;
   text-align: center;
-  height: 300px;
+  height: 160px;
   padding-right: 10px;
   overflow: scroll;
+  font-family: 'homestead';
+  font-size: 16px;
+  padding: 0;
+  text-align: center;
+  overflow: hidden;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border:4px solid black;
 
 }
 .showfont {
   color: black;
   z-index: 2;
+  vertical-align: middle;
+  margin-top: 60px !important;
 }
 
 .body{
   background-color: transparent;
-
+  position: relative; /* to make footer in the bottom of the body*/
+  padding-bottom: 45px;  /*footer heigh + 10px*/
+  margin: 0; /*to make footer fill the screen width without scroll*/
 }
 
 .navbar-default {
-    background: transparent url('<%= asset_path "heart183.png" %>') no-repeat center;
+    background: transparent no-repeat center;
+    /*heart icon for nav-bar*/
+    /*url('<%= asset_path "heart183.png" %>')*/
     opacity: .9;
     border: 20px;
     border-bottom-color: black;
     border-bottom: 1px solid white;
     margin-left: 10%;
     margin-right: 10%;
+
 }
 
 .navbar-default .navbar-brand:hover {
@@ -46,7 +57,7 @@
 
 
  .navbar-default .navbar-nav > li > a {
-    color:  #ecf0f1;
+    color:  #fff;
     text-decoration: none;
   }
 
@@ -125,64 +136,6 @@
 }
 
 
-#intro{
-    background:url('http://i.imgur.com/YykQECt.jpg') 50% 0 no-repeat fixed;
-    color: white;
-    height: 600px;
-    margin: 0;
-    padding: 160px 0 0 0;
-    margin-bottom: 200px;
-     no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#image2 .bg2{
-    background:url('http://i.imgur.com/eYKiDOb.jpg') 50% 0 no-repeat fixed;
-    color: black;
-    height: 600px;
-    margin: 0;
-    padding: 160px 0 0 0;
-    margin-left: -111px;
-    margin-right: -111px;
-     no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#image3 .bg3{
-    background:url('http://i.imgur.com/58IaLH4.png') 50% 0 no-repeat fixed;
-    color: white;
-    height: 600px;
-    margin: 0;
-    padding: 160px 0 0 0;
-     no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-
-.story{
-    margin: 0 auto;
-    min-width: 980px;
-    width: 980px;
-}
-
-
-#image4 .bg4{
-   background: url('http://i.imgur.com/dG9HoXp.jpg') 50% 0 no-repeat fixed;
-    ...
-    position: absolute;
-    ...
-    z-index: 200;
-}
-
 /*SLIDE LEFT TO RIGHT */
 .sliding-u-l-r {
 display: inline-block;
@@ -205,12 +158,23 @@ background: white;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-color: white;
+  font-family: 'homestead';
+  font-size: 22px;
+  background: -webkit-linear-gradient(#fff, #f1c40f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 
 .navbar-default .navbar-nav > li > a {
-color: white;
-text-decoration: none;
+  font-family: 'homestead';
+  font-size: 22px;
+  background: -webkit-linear-gradient(#fff, #f1c40f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 
 }
 
@@ -220,10 +184,11 @@ text-decoration: none;
 }
 
 .navbar-nav.nav-justified > li{
-    float:none;
+  float:none;
 }
 
 .float-left {
+<<<<<<< HEAD
 float:left;
 width:33%;
 }
@@ -276,10 +241,14 @@ width:33%;
   font-family: "FontAwesome";
   font-size: 10px;
   margin-left: 5px;
+=======
+  float:left;
+  width:33%;
+>>>>>>> e0741d16eb82abe1fc31da507591d6ee0441e847
 }
 
 body {
-  background: #4aabb1;
+  /*background: #4aabb1;*/
 }
 
 hr {
@@ -290,28 +259,56 @@ hr {
   margin: 50px 0;
 }
 
-.heart_fork_button a {
-  position: absolute;
-  top:0;
-  width: 50px;
-  height: 50px;
-  /*background-color: red;*/
-  left: 50%;
-  margin-left: -25px;
-}
-
 .container {
   text-align: center;
 }
 
-.slogan_container {
+.form_font_style {
+  font-family: 'homestead';
+  font-size: 18px;
   text-align: center;
 }
 
-.container .three-callouts {
-  margin-left: 131px;
+.button_font_style {
+  font-family: 'homestead';
+  font-size: 18px !important;
+  text-align: center;
+  color: black !important;
 }
 
+.calendar_font_style {
+  font-family: 'homestead';
+  font-size: 15px;
+  text-align: center;
+}
 
+.form_font_button {
+  font-family: 'homestead';
+  /* Apologies to Rafi*/
+  font-size: 22px !important;
+}
 
+.flat-color-gradient-19 {
+  background-image: linear-gradient(to bottom, transparent, #bdc3c7);
+}
 
+.button_width {
+  margin-top: 20px;
+  width: 200px;
+}
+
+.link_style {
+  color: white !important;
+  font-size: 24px !important;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+
+}
+
+#transparent {
+  background: transparent !important;
+}
+
+.no_flow {
+  overflow: hidden;
+}

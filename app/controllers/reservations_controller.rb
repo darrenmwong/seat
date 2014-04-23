@@ -27,7 +27,9 @@ class ReservationsController < ApplicationController
     new_date = params.require(:reservation).permit(:begin)
     
     # Create new DateTime object with each piece of date hash in params hash
+    # 1i is the year, 2i is the month, 3i is the day
     new_date[:begin] = DateTime.new(new_date["begin(1i)"].to_i, new_date["begin(2i)"].to_i, new_date["begin(3i)"].to_i, new_date["begin(4i)"].to_i, new_date["begin(5i)"].to_i)
+    # new_date[:begin] = DateTime.new(new_date["begin(1i)"].to_i, new_date["begin(2i)"].to_i, new_date["begin(3i)"].to_i)
     
     new_params = { party_size: new_party[:party_size], begin: new_date[:begin] }
     

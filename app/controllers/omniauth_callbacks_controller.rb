@@ -4,7 +4,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_for_facebook_oauth(request.env["omniauth.auth"])
     p @user
     if @user.persisted?
-      set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
+      # set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
       sign_in_and_redirect @user
     else
       session["devise.facebook_data"] = request.env["omniauth.auth"].except("extra")
