@@ -3,13 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-  $('#calendar').datepicker()
   $("#calendar_icon_datepicker").datepicker()
-  $('#calendar_icon_datepicker').attr src: "<%= asset_path('calendar-metro-icon.png') %>"
-  buttonImageOnly = true
-  changeMonth = true
-  changeYear = true
-  showOn = "both"
+  dateFormat: 'yy-mm-dd'
+
 
 
   

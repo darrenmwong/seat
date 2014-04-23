@@ -27,15 +27,16 @@
     :start_hour => 18, :end_hour => 21} %> 
 <% end %>
 
-   <br>
-    <%= f.label "For How Many?" %> <br>
-  <%= f.number_field :party_size, in: 1..24, value: 1 %> 
+  <br>
+    <%= f.label "Party size?", :class => 'form_font_style' %>
+  <br>
+    <%= f.number_field :party_size, in: 1..24, value: 1 %> 
   
 <br>
 <br>
 <br>
 
-  <%= f.submit class: "button" %>
+  <%= f.submit class: "button button_font_style" %>
 
 <% end %>
 </div>
