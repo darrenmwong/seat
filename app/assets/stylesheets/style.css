@@ -73,3 +73,10 @@ img {
   width: 242px;
 }
 
+.rounded_div_border {
+  background: #2980b9;
+  border: 4px solid black;
+  height: 416px;
+}
+
+

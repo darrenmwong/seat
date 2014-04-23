@@ -1,6 +1,6 @@
 <div class="top">
 <div class="authform container">
-  <div class="animated animationDelayLong fadeIn">
+  <div class="rounded_div_border">
 <%= form_for :reservation, :url => user_reservations_path, :method => :post do |f| %> 
 
   <%= f.label "Calendar", :class => 'form_font_style' %> <br>
@@ -10,7 +10,7 @@
   <input type="hidden" id="calendar_icon_datepicker"/>
   </div>
   </div>
-  
+
   <!-- text field JQuery datepicker click and appear -->
   <!-- <div class="field form-horizontal center">
   <%= f.text_field :begin, :id => "calendar", :autocomplete => :off, :placeholder => "Click here to select date", :class => 'calendar_align calendar_font_style' %>
