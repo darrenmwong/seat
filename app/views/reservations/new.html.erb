@@ -3,6 +3,8 @@
   <div class="rounded_div_border">
 <%= form_for :reservation, :url => user_reservations_path, :method => :post do |f| %> 
 
+
+  <% if false %>
   <%= f.label "Calendar", :class => 'form_font_style' %> <br>
   <div>
   <!-- <img id="calendar_icon_align" src="http://i.imgur.com/YALbuNM.jpg"> -->
@@ -10,22 +12,18 @@
   <input type="hidden" id="calendar_icon_datepicker"/>
   </div>
   </div>
+  <% end %>
+
 
   <!-- text field JQuery datepicker click and appear -->
   <!-- <div class="field form-horizontal center">
   <%= f.text_field :begin, :id => "calendar", :autocomplete => :off, :placeholder => "Click here to select date", :class => 'calendar_align calendar_font_style' %>
   </div> -->
 
-  <script>
-  $(function() {
-    $("#calendar").datepicker();
-  });
-  </script>
-  <% if false %>
+ 
   <%= f.datetime_select :begin, 
    {:twelve_hour => true, :ampm => true, :minute_step => 30,  
     :start_hour => 18, :end_hour => 21} %> 
-<% end %>
 
   <br>
     <%= f.label "Party size?", :class => 'form_font_style' %>
