@@ -5,11 +5,17 @@
 
   <%= f.label "Calendar", :class => 'form_font_style' %> <br>
   <div>
-  <img id="calendar_icon_align" src="http://i.imgur.com/YALbuNM.jpg">
+  <!-- <img id="calendar_icon_align" src="http://i.imgur.com/YALbuNM.jpg"> -->
+  <div id="calendar_icon_datepicker">
+  <input type="hidden" id="calendar_icon_datepicker"/>
   </div>
-  <div class="field form-horizontal center">
+  </div>
+  
+  <!-- text field JQuery datepicker click and appear -->
+  <!-- <div class="field form-horizontal center">
   <%= f.text_field :begin, :id => "calendar", :autocomplete => :off, :placeholder => "Click here to select date", :class => 'calendar_align calendar_font_style' %>
-  </div>
+  </div> -->
+
   <script>
   $(function() {
     $("#calendar").datepicker();
