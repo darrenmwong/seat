@@ -1,14 +1,15 @@
 <div class="top">
-<div class="authform">
+<div class="authform container">
   <div class="animated animationDelayLong fadeIn">
-<%= form_for :reservation, :url => user_reservations_path, :method => :post do |f| %>  
-  <%= f.label "What date?" %> <br>
-  <div class="field">
-  <%= f.text_field :begin, :id => "calendar" %>
+<%= form_for :reservation, :url => user_reservations_path, :method => :post do |f| %> 
+
+  <%= f.label "Calendar", :class => 'form_font_style' %> <br>
+  <div>
+  <img id="calendar_icon_align" src="http://i.imgur.com/YALbuNM.jpg">
   </div>
-
-
-
+  <div class="field form-horizontal center">
+  <%= f.text_field :begin, :id => "calendar", :autocomplete => :off, :placeholder => "Click here to select date", :class => 'calendar_align calendar_font_style' %>
+  </div>
   <script>
   $(function() {
     $("#calendar").datepicker();

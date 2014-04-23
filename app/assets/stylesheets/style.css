@@ -57,3 +57,19 @@ body > #container {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
+
+#calendar_icon {
+  background-image: url('http://i.imgur.com/YALbuNM.jpg');
+   
+}
+img {
+  border: 2px solid black;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px; 
+}
+
+.calendar_align {
+  width: 242px;
+}
+
