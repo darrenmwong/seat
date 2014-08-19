@@ -6,16 +6,17 @@
   <link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="/assets/images/favicon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
   <link rel="icon" href="/assets/images/favicon.ico" />
-  <script type="text/javascript" src="assets/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="assets/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/jquery-1.11.1.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= content_for?(:title) ? yield(:title) : "Seat" %></title>
   <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Seat" %>">
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
+<body>
+    <div id="spacing"> </div>
   <header class="container-fluid">
     <%= render 'layouts/navigation' %>
   </header>
@@ -24,25 +25,11 @@
   <div id="main" role="main">
   <div class="col-md-12 text-center">
 
-  <!-- Section #1 / Intro -->
-  <section id="first" data-speed="8" data-type="background"> 
+
+
       <%= render 'layouts/messages' %>
        <%= yield %>       
-    <!-- <div class="smashinglogo" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2"></div>  -->
-    <!-- <div class = "slogan_container"> -->
-    <!-- <img src="http://i.imgur.com/LYYtetg.png" class="tag_line" /> -->
-  <!-- </div> -->
-       
 
-
-    <!-- </div> -->
-
-    <!-- <article>
-    
-      <img src=url('http://i.imgur.com/9U1O6J3.png') alt="tutorial-title" width="711" height="242" />
-      
-      </article> -->
-  </section>
 
   <div class="container three-callouts">
     <div align="center" class="col-md-3">
@@ -67,47 +54,8 @@
      
   </section>
   
-  <!-- Section #3 / Photos -->
-  <section id="third" data-speed="6" data-type="background" data-offsetY="250">     
-    <div class="photograph" data-type="sprite" data-offsetY="1250" data-Xposition="25%" data-speed="2" style="background-position: 25% -150.5px;"></div>
-<!--       <article>
-        <h2>Eat with Seat</h2>
-        <div class="textbox">     
-          <p>The next step in your parallax scrolling adventure is to create some sprites!</p>
-          <p>I have cut out one of the photos in this background and use it as a sprite. It scrolls at a different speed to the background <i>and</i> the window, and it's this effect that's used so well on Nike Better World and other parallax sites..</p>
-          <p>Using too many sprites can slow down older computers, and you need to use some clever maths (and trial & error!) to work out their placement on the page.</p>
-        </div>
-      </article> -->
-  </section>  
+
   
-
-  <!-- Section #4 / HTML5 Video -->
-  <section id="fourth" data-speed="8" data-type="background" data-offsetY="250">
-      <article>
-
-      </article>
-
-  </section>  
-
-  <!-- Section #5 / The End-->
-  <section id="theend" data-speed="8" data-type="background" data-offsetY="250">      
-    <div class="byebye" data-type="sprite" data-offsetY="-1600" data-Xposition="50%" data-speed="-2"></div> 
-  </section>
-  
-  </div> <!-- // End of #main -->
-
-
-  <link rel="stylesheet" src="<%= asset_path('reset.css') %>"/>
-  <link rel="stylesheet" src="<%= asset_path('style.css') %>"/>
-  <!--[if lt IE 7 ]>
-    <script src="js/libs/dd_belatedpng.js"></script>
-    <script>DD_belatedPNG.fix("img, .png_bg");
-  <![endif]-->
-   
-    <main role="main">
-  
-     
-     
       </ul>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
