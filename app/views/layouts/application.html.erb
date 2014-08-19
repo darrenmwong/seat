@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="animate.min.css">
   <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
   <link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="/assets/images/favicon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
   <link rel="icon" href="/assets/images/favicon.ico" />
-  <script type="text/javascript" src="assets/bootstrap.min.js"></script>
-  <script type="text/javascript" src="assets/jquery-1.11.1.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= content_for?(:title) ? yield(:title) : "Seat" %></title>
   <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Seat" %>">
@@ -63,4 +60,7 @@
     
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   </body>
+
+  <script type="text/javascript" src="assets/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/jquery-1.11.1.min.js"></script>
 </html>
