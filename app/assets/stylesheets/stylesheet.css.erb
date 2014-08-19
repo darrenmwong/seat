@@ -1,5 +1,6 @@
 @keyframes fadeIn {
-  0% {opacity: 0;}
+  0% {
+    : 0;}
   100% {opacity: 1;}
 }
 
@@ -37,12 +38,12 @@
 }
 
 .navbar-default {
-    background: transparent url('<%= asset_path "heart183.png" %>') no-repeat center;
-    opacity: .9;
+    background-color: white;
+    opacity: .8;
     border: 20px;
     border-color: black;
-    border: 2px solid black;
-    margin: 10px;
+    border-bottom: 2px solid black;
+    margin-top: 60px;
 }
 
 .navbar-default .navbar-brand:hover {
@@ -303,7 +304,6 @@ hr {
 
 .container {
   text-align: center;
-  padding-top: 100px;
 }
 
 .slogan_container {
@@ -320,6 +320,11 @@ hr {
   width: 100%;
   position: absolute;
 
+}
+
+.navbar-nav.navbar-right:last-child {
+
+  margin-right: 40px;
 }
 
 
