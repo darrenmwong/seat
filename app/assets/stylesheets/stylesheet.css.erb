@@ -7,13 +7,19 @@
   animation-name: fadeIn;
 }
 
+.container, #firstImage {
+  height: 30%;
+  width: 100%;
+}
+
+
 .top {
   margin-top: 75px;
 }
 
 .showPage {
-  background-color: lightblue;
-  opacity: .8;
+/*  background-color: lightblue;
+*/  opacity: .8;
   text-align: center;
   height: 300px;
   padding-right: 10px;
@@ -35,7 +41,7 @@
     opacity: .9;
     border: 20px;
     border-bottom-color: black;
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid black;
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -177,9 +183,7 @@
 
 #image4 .bg4{
    background: url('http://i.imgur.com/dG9HoXp.jpg') 50% 0 no-repeat fixed;
-    ...
     position: absolute;
-    ...
     z-index: 200;
 }
 
@@ -205,19 +209,19 @@ background: white;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-color: white;
+color: black;
 }
 
 .navbar-default .navbar-nav > li > a {
-color: white;
+color: black;
 text-decoration: none;
 
 }
-
+/*
 .root_icon{
   image:"http://i.imgur.com/AJJUPtn.png";
   width: 100px;
-}
+}*/
 
 .navbar-nav.nav-justified > li{
     float:none;
@@ -279,7 +283,9 @@ width:33%;
 }
 
 body {
-  background: #4aabb1;
+  height:100%;
+  width: 100%;
+  /*background: #4aabb1;*/
 }
 
 hr {
