@@ -320,11 +320,12 @@ hr {
 }
 
 
-#spacing {
-  height: 30px;
-  width: 100%;
-  position: absolute;
-
+#headSpace {
+  width: -webkit-calc(100% - 50px);
+  width: -moz-calc(100% - 50px);
+  width: calc(100% - 50px);
+  position: relative;
+  padding-left: 50px;
 }
 
 .navbar-nav.navbar-right:last-child {
@@ -337,3 +338,12 @@ hr {
        height:600px;
      }
 
+.logo {
+  float: left;
+  position: relative;
+  top: 0px;
+  display: block;
+  width: 125px;
+  text-indent: -9999em;
+  margin-left: 8%;
+}
