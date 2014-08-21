@@ -2,7 +2,7 @@
  <div class="animated animationDelayLong fadeIn">
 <div class="authform">
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %>
-    <h3>Log in</h3>
+    <h3>Log in</h3> <br>  
     <%= devise_error_messages! %>
     <div class="form-group">
       <%= f.label :email %>
@@ -26,6 +26,14 @@
 
       <% end -%>
   <% end %>
+</div>
+
+
+<div class="formAbout">
+  <p> This is something about something</p>
+  <p> And something something about something </p>
+  <p> Something Something and more something </p>
+  <p> Maybe one more something </p>
 </div>
 </div>
 </div>
