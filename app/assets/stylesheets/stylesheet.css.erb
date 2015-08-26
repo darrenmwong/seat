@@ -1,5 +1,6 @@
 @keyframes fadeIn {
-  0% {opacity: 0;}
+  0% {
+    : 0;}
   100% {opacity: 1;}
 }
 
@@ -7,13 +8,19 @@
   animation-name: fadeIn;
 }
 
+.container, #firstImage {
+  height: 30%;
+  width: 100%;
+}
+
+
 .top {
   margin-top: 75px;
 }
 
 .showPage {
-  background-color: lightblue;
-  opacity: .8;
+/*  background-color: lightblue;
+*/  opacity: .8;
   text-align: center;
   height: 300px;
   padding-right: 10px;
@@ -31,13 +38,16 @@
 }
 
 .navbar-default {
-    background: transparent url('<%= asset_path "heart183.png" %>') no-repeat center;
-    opacity: .9;
-    border: 20px;
-    border-bottom-color: black;
-    border-bottom: 1px solid white;
-    margin-left: 10%;
-    margin-right: 10%;
+    background-color: white;
+    opacity: .8;
+    border-color: black;
+    border-bottom: 1px solid black;
+    margin-top: 30px;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+
+
 }
 
 .navbar-default .navbar-brand:hover {
@@ -126,7 +136,6 @@
 
 
 #intro{
-    background:url('http://i.imgur.com/YykQECt.jpg') 50% 0 no-repeat fixed;
     color: white;
     height: 600px;
     margin: 0;
@@ -140,7 +149,6 @@
 }
 
 #image2 .bg2{
-    background:url('http://i.imgur.com/eYKiDOb.jpg') 50% 0 no-repeat fixed;
     color: black;
     height: 600px;
     margin: 0;
@@ -155,7 +163,6 @@
 }
 
 #image3 .bg3{
-    background:url('http://i.imgur.com/58IaLH4.png') 50% 0 no-repeat fixed;
     color: white;
     height: 600px;
     margin: 0;
@@ -176,10 +183,7 @@
 
 
 #image4 .bg4{
-   background: url('http://i.imgur.com/dG9HoXp.jpg') 50% 0 no-repeat fixed;
-    ...
     position: absolute;
-    ...
     z-index: 200;
 }
 
@@ -205,19 +209,20 @@ background: white;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-color: white;
+color: black;
+border-bottom: 8px solid black;
 }
 
 .navbar-default .navbar-nav > li > a {
-color: white;
+color: black;
 text-decoration: none;
 
 }
-
+/*
 .root_icon{
   image:"http://i.imgur.com/AJJUPtn.png";
   width: 100px;
-}
+}*/
 
 .navbar-nav.nav-justified > li{
     float:none;
@@ -240,11 +245,11 @@ width:33%;
   font-weight: 300;
   line-height: 40px;
   margin-bottom: 5px;
-  text-align: left;
+  text-align: -webkit-center;
 }
 
 .three-callouts p {
-  text-align: left;
+  text-align: center;
   line-height: 1.4;
   margin-bottom: 5px;
   color: #666;
@@ -264,7 +269,7 @@ width:33%;
   text-decoration: none;
   padding-right: 10px;
   width: 100%;
-  float: left;
+  float: center;
 }
 
 .three-callouts a:hover {
@@ -279,7 +284,9 @@ width:33%;
 }
 
 body {
-  background: #4aabb1;
+  height:100%;
+  width: 100%;
+  /*background: #4aabb1;*/
 }
 
 hr {
@@ -310,8 +317,79 @@ hr {
 
 .container .three-callouts {
   margin-left: 131px;
+  position: relative;
+  border-top: 1px solid black;
 }
 
 
+#headSpace {
+  width: -webkit-calc(100% - 50px);
+  width: -moz-calc(100% - 50px);
+  width: calc(100% - 50px);
+  position: relative;
+  padding-left: 50px;
+}
+
+.navbar-nav.navbar-right:last-child {
+
+  margin-right: 40px;
+}
+/*IMAGE CAROUSEL RESIZE*/
+.carousel-inner > .item > img{
+       width:100%;
+       height:600px;
+     }
+
+.logo {
+  float: left;
+  position: relative;
+  top: 0px;
+  display: block;
+  width: 125px;
+  text-indent: -9999em;
+  margin-left: 8%;
+}
 
 
+.containerTestimonial {
+  top: 225px;
+  width: 100%;
+  border-top: 1px solid black;
+  height: 300px;
+  position: relative;
+
+
+}
+
+#footer {
+   background-color: #F5F5F5;
+   bottom: 0;
+   height: 250px;
+   width: 100%;
+   position: relative;
+}
+
+
+.well-lg, .authform form {
+  border: 1px solid grey;
+
+}
+
+.authform {
+  width: 500px;
+  text-align: left;
+  margin-left: 0;
+  float: left;
+  position: relative;
+
+}
+
+.formAbout {
+  border: 1px solid black;
+  width: 500px;
+  float: right;
+  margin-top: 100px;
+
+
+
+}

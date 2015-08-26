@@ -1,15 +1,24 @@
 <%# add navigation links to this file %>
 
 <% if user_signed_in? %>
-<li><%= link_to 'Make Reservation', new_user_reservation_path(current_user.id), :class => "sliding-u-l-r" %> </li>
+<li> <%= link_to "#{current_user.name}", user_path(current_user.id), :class => "sliding-u-l-r" %> </li>
+  <li><%= link_to 'LOGOUT', destroy_user_session_path, :method=>'delete', :class => "sliding-u-l-r" %></li>
+<% else %>
+
+  <li><%= link_to 'LOGIN', new_user_session_path, :class => "sliding-u-l-r" %></li>
+  <li> <%= link_to 'FB LOGIN', user_omniauth_authorize_path(:facebook), :class => "sliding-u-l-r"  %> </li>
+<% end %>
+
+<% if user_signed_in? %>
+<li><%= link_to 'MAKE RESERVATION', new_user_reservation_path(current_user.id), :class => "sliding-u-l-r" %> </li>
 
 <% else %>
-  <li><%= link_to 'Sign up', new_user_registration_path, :class => "sliding-u-l-r" %></li>
+  <li><%= link_to 'SIGN UP', new_user_registration_path, :class => "sliding-u-l-r" %></li>
 <% end %>
 <% if user_signed_in? %>
 
   <% if current_user.superadmin? %>
 
- <li> <%= link_to 'Admin Dashboard', admin_dashboard_path, :class => "sliding-u-l-r" %> </li>
+ <li> <%= link_to 'ADMIN DASHBOARD', admin_dashboard_path, :class => "sliding-u-l-r" %> </li>
  <% end %>
 <% end %>
